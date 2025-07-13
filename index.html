@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Axle IA - Experience cutting-edge AI solutions tailored for business transformation. Dubai & Côte d'Ivoire.">
+    <meta name="keywords" content="AI, Artificial Intelligence, Business Solutions, Automation, Chatbots, Digital Marketing, Dubai, Côte d'Ivoire">
+    <meta name="author" content="Axle IA">
+    <title>Axle IA - AI Solutions for Business</title>
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+</head>
+<body>
+    <!-- Navigation -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="container">
+                <div class="nav-brand">
+                    <h1 class="logo">Axle IA</h1>
+                </div>
+                
+                <div class="nav-menu" id="navMenu">
+                    <a href="#services" class="nav-link" data-translate="nav_services">Our Services</a>
+                    <a href="#process" class="nav-link" data-translate="nav_process">Our Process</a>
+                    <a href="#mission" class="nav-link" data-translate="nav_mission">Our Mission</a>
+                    <a href="pages/blog.html" class="nav-link" data-translate="nav_blog">Blog</a>
+                    <a href="pages/careers.html" class="nav-link" data-translate="nav_careers">Careers</a>
+                    
+                    <div class="nav-controls">
+                        <select id="regionSelector" class="region-selector" aria-label="Select region">
+                            <option value="dubai">🇦🇪 Dubai</option>
+                            <option value="ci">🇨🇮 Côte d'Ivoire</option>
+                        </select>
+                        <button id="langToggle" class="lang-toggle" aria-label="Toggle language">EN</button>
+                    </div>
+                </div>
+                
+                <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section class="hero" id="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1 class="hero-title" data-translate="hero_title">
+                        Experience cutting-edge AI solutions
+                    </h1>
+                    <p class="hero-subtitle" data-translate="hero_subtitle">
+                        Tailored AI solutions for business transformation
+                    </p>
+                    <div class="hero-actions">
+                        <button class="cta-button primary" id="getStartedBtn" data-translate="cta_button">
+                            Get Started
+                        </button>
+                        <a href="#services" class="cta-button secondary" data-translate="learn_more">
+                            Learn More
+                        </a>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <div class="hero-graphic">
+                        <div class="ai-nodes">
+                            <div class="node node-1"></div>
+                            <div class="node node-2"></div>
+                            <div class="node node-3"></div>
+                            <div class="node node-4"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section class="services" id="services">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title" data-translate="services_title">Our Services</h2>
+                    <p class="section-subtitle" data-translate="services_subtitle">
+                        Comprehensive AI solutions designed to transform your business
+                    </p>
+                </div>
+                
+                <div class="services-grid">
+                    <div class="service-card" data-aos="fade-up" data-aos-delay="100">
+                        <div class="service-icon">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 2L2 7V17C2 17.55 2.45 18 3 18H21C21.55 18 22 17.55 22 17V7L12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M12 22V12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M12 12L2 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M12 12L22 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <h3 class="service-title" data-translate="service_ai_agents">Tailored AI Agents</h3>
+                        <p class="service-description" data-translate="service_ai_agents_desc">
+                            Custom AI solutions designed specifically for your business needs and workflows
+                        </p>
+                    </div>
+
+                    <div class="service-card" data-aos="fade-up" data-aos-delay="200">
+                        <div class="service-icon">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 20V10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M18 20V4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M6 20V16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <h3 class="service-title" data-translate="service_automation">Smart Process Automation</h3>
+                        <p class="service-description" data-translate="service_automation_desc">
+                            Streamline your operations with intelligent automation that learns and adapts
+                        </p>
+                    </div>
+
+                    <div class="service-card" data-aos="fade-up" data-aos-delay="300">
+                        <div class="service-icon">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M21 15C21 15.5304 20.7893 16.0391 20.4142 16.4142C20.0391 16.7893 19.5304 17 19 17H7L3 21V5C3 4.46957 3.21071 3.96086 3.58579 3.58579C3.96086 3.21071 4.46957 3 5 3H19C19.5304 3 20.0391 3.21071 20.4142 3.58579C20.7893 3.96086 21 4.46957 21 5V15Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <h3 class="service-title" data-translate="service_chatbot">Chatbot Development</h3>
+                        <p class="service-description" data-translate="service_chatbot_desc">
+                            Engage customers 24/7 with smart conversational AI that understands context
+                        </p>
+                    </div>
+
+                    <div class="service-card" data-aos="fade-up" data-aos-delay="400">
+                        <div class="service-icon">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M2 12H22" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M12 2C14.5013 4.73835 15.9228 8.29203 16 12C15.9228 15.708 14.5013 19.2616 12 22C9.49872 19.2616 8.07725 15.708 8 12C8.07725 8.29203 9.49872 4.73835 12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <h3 class="service-title" data-translate="service_marketing">Data-Driven Digital Marketing</h3>
+                        <p class="service-description" data-translate="service_marketing_desc">
+                            Optimize your marketing strategies with AI-powered insights and analytics
+                        </p>
+                    </div>
+
+                    <div class="service-card" data-aos="fade-up" data-aos-delay="500">
+                        <div class="service-icon">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M14.7 6.3C15.1 6.7 15.1 7.3 14.7 7.7L11.4 11L14.7 14.3C15.1 14.7 15.1 15.3 14.7 15.7C14.3 16.1 13.7 16.1 13.3 15.7L9.3 11.7C8.9 11.3 8.9 10.7 9.3 10.3L13.3 6.3C13.7 5.9 14.3 5.9 14.7 6.3Z" fill="currentColor"/>
+                                <path d="M22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12Z" stroke="currentColor" stroke-width="2" fill="none"/>
+                            </svg>
+                        </div>
+                        <h3 class="service-title" data-translate="service_integration">Seamless Integration</h3>
+                        <p class="service-description" data-translate="service_integration_desc">
+                            Integrate AI solutions smoothly into your existing systems and workflows
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Process Section -->
+        <section class="process" id="process">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title" data-translate="process_title">Our Process</h2>
+                    <p class="section-subtitle" data-translate="process_subtitle">
+                        A proven methodology to deliver exceptional AI solutions
+                    </p>
+                </div>
+                
+                <div class="process-timeline">
+                    <div class="process-step" data-aos="fade-right" data-aos-delay="100">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h3 class="step-title" data-translate="process_step1">Introductory Consultation</h3>
+                            <p class="step-description" data-translate="process_step1_desc">
+                                Understanding your unique business challenges, goals, and current technological landscape
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="process-step" data-aos="fade-left" data-aos-delay="200">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h3 class="step-title" data-translate="process_step2">Tailored Strategy Development</h3>
+                            <p class="step-description" data-translate="process_step2_desc">
+                                Creating a customized AI implementation plan that aligns with your business objectives
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="process-step" data-aos="fade-right" data-aos-delay="300">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <h3 class="step-title" data-translate="process_step3">Seamless Implementation</h3>
+                            <p class="step-description" data-translate="process_step3_desc">
+                                Deploying AI solutions with minimal disruption to your existing operations
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="process-step" data-aos="fade-left" data-aos-delay="400">
+                        <div class="step-number">4</div>
+                        <div class="step-content">
+                            <h3 class="step-title" data-translate="process_step4">Ongoing Support and Optimization</h3>
+                            <p class="step-description" data-translate="process_step4_desc">
+                                Continuous improvement, monitoring, and dedicated support to maximize ROI
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Mission Section -->
+        <section class="mission" id="mission">
+            <div class="container">
+                <div class="mission-content">
+                    <div class="mission-text" data-aos="fade-up">
+                        <h2 class="section-title" data-translate="mission_title">Our Mission</h2>
+                        <h3 class="mission-statement" data-translate="mission_statement">
+                            Helping businesses work smarter with AI
+                        </h3>
+                        <p class="mission-description" data-translate="mission_description">
+                            We empower companies through AI technologies, making innovation accessible to businesses of all sizes. 
+                            Our goal is to bridge the gap between cutting-edge artificial intelligence and practical business solutions.
+                        </p>
+                        <div class="mission-stats">
+                            <div class="stat">
+                                <span class="stat-number">50+</span>
+                                <span class="stat-label" data-translate="stat_projects">Projects Delivered</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-number">2</span>
+                                <span class="stat-label" data-translate="stat_regions">Regions Served</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-number">99%</span>
+                                <span class="stat-label" data-translate="stat_satisfaction">Client Satisfaction</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mission-visual" data-aos="fade-up" data-aos-delay="200">
+                        <div class="globe-container">
+                            <div class="globe">
+                                <div class="globe-inner"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3 class="footer-title">Axle IA</h3>
+                    <p class="footer-description" data-translate="footer_description">
+                        Transforming businesses through cutting-edge AI solutions across Dubai and Côte d'Ivoire.
+                    </p>
+                    <div class="social-links">
+                        <a href="https://instagram.com/axle.ia" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zM5.838 12a6.162 6.162 0 1112.324 0 6.162 6.162 0 01-12.324 0zM12 16a4 4 0 110-8 4 4 0 010 8zm4.965-10.405a1.44 1.44 0 112.881.001 1.44 1.44 0 01-2.881-.001z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="footer-section">
+                    <h4 class="footer-section-title" data-translate="footer_company">Company</h4>
+                    <ul class="footer-links">
+                        <li><a href="#services" data-translate="footer_services">Services</a></li>
+                        <li><a href="#process" data-translate="footer_process">Process</a></li>
+                        <li><a href="#mission" data-translate="footer_mission">Mission</a></li>
+                        <li><a href="pages/blog.html" data-translate="footer_blog">Blog</a></li>
+                        <li><a href="pages/careers.html" data-translate="footer_careers">Careers</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4 class="footer-section-title" data-translate="footer_contact">Contact</h4>
+                    <div class="contact-info">
+                        <div class="region-specific dubai-content">
+                            <div class="contact-location">
+                                <strong>Dubai Office</strong>
+                                <p>Business Bay, Dubai, UAE</p>
+                                <p>hello@axle-ia.com</p>
+                            </div>
+                        </div>
+                        <div class="region-specific ci-content" style="display: none;">
+                            <div class="contact-location">
+                                <strong>Côte d'Ivoire Office</strong>
+                                <p>Plateau, Abidjan, CI</p>
+                                <p>hello@axle-ia.com</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="footer-section">
+                    <h4 class="footer-section-title" data-translate="footer_newsletter">Stay Updated</h4>
+                    <p class="newsletter-description" data-translate="newsletter_description">
+                        Get the latest insights on AI and business transformation.
+                    </p>
+                    <button class="cta-button primary newsletter-btn" id="newsletterBtn" data-translate="newsletter_button">
+                        Subscribe
+                    </button>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div class="footer-bottom-content">
+                    <p class="copyright" data-translate="footer_copyright">
+                        © 2024 Axle IA. All rights reserved.
+                    </p>
+                    <div class="footer-bottom-links">
+                        <a href="#" data-translate="privacy_policy">Privacy Policy</a>
+                        <a href="#" data-translate="terms_service">Terms of Service</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Contact Modal -->
+    <div id="contactModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 data-translate="modal_title">Get Started with Axle IA</h3>
+                <button class="modal-close" id="closeModal" aria-label="Close modal">&times;</button>
+            </div>
+            <form id="contactForm" class="contact-form">
+                <div class="form-group">
+                    <label for="name" data-translate="form_name">Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email" data-translate="form_email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="company" data-translate="form_company">Company</label>
+                    <input type="text" id="company" name="company">
+                </div>
+                <div class="form-group">
+                    <label for="message" data-translate="form_message">Message</label>
+                    <textarea id="message" name="message" rows="4" required></textarea>
+                </div>
+                <button type="submit" class="submit-button" data-translate="form_submit">Submit</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+    <script src="js/translations.js"></script>
+    <script src="js/clickup-integration.js"></script>
+</body>
+</html>

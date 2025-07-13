@@ -5,17 +5,20 @@ A modern, multilingual website for Axle IA - providing cutting-edge AI solutions
 ## 🌟 Features
 
 ### ✨ Core Functionality
-- **Faithful Recreation** of axle-ia.com design
+- **Complete Website** with Blog and Careers sections
 - **Multilingual Support** (English/French) with auto-detection
 - **Regional Differentiation** for Dubai and Côte d'Ivoire
 - **Responsive Design** optimized for all devices
 - **Professional Animations** and smooth interactions
+- **Blog System** with AI insights and industry articles
+- **Career Portal** with job listings and application system
 
 ### 🔗 ClickUp Integration
 - **Smart Routing** based on form type and region
-- **Candidate Applications** → Recruitment lists
-- **General Contacts** → Regional CRM lists
+- **Job Applications** → Regional recruitment lists
+- **Contact Forms** → Regional CRM lists
 - **Real-time Form Submission** with error handling
+- **Advanced Lead Scoring** and qualification
 - **Bilingual Success/Error Messages**
 
 ### 📱 User Experience
@@ -23,6 +26,29 @@ A modern, multilingual website for Axle IA - providing cutting-edge AI solutions
 - **Accessibility Features** with keyboard navigation
 - **Performance Optimized** with lazy loading
 - **SEO Friendly** with semantic HTML
+
+## 📄 Pages Overview
+
+### 🏠 Homepage (index.html)
+- Hero section with call-to-action
+- Services showcase with animations
+- Process methodology timeline
+- Mission statement and stats
+- Enhanced footer with social links
+
+### 📚 Blog (pages/blog.html)
+- AI insights and industry articles
+- Category filtering and pagination
+- Recent posts sidebar
+- Newsletter subscription
+- Responsive blog layout
+
+### 💼 Careers (pages/careers.html)
+- Job listings for Dubai and Côte d'Ivoire
+- Company culture and values
+- Benefits and perks showcase
+- Application modal with ClickUp integration
+- File upload for CV/resume
 
 ## 🏗️ Project Structure
 
@@ -37,8 +63,8 @@ axle-ia-website/
 │   ├── translations.js    # Language system
 │   └── clickup-integration.js # ClickUp API integration
 ├── pages/
-│   ├── blog.html          # Blog section (future)
-│   └── careers.html       # Careers page (future)
+│   ├── blog.html          # Blog with AI insights and articles
+│   └── careers.html       # Careers page with job listings
 ├── assets/
 │   ├── images/            # Image assets
 │   └── icons/             # Icon files

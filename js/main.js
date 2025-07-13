@@ -185,18 +185,49 @@ document.addEventListener('DOMContentLoaded', function() {
     // ======================
     
     if (contactForm) {
+        // Enhanced form setup
+        setupEnhancedFormLogic();
+        
         contactForm.addEventListener('submit', function(e) {
             e.preventDefault();
             
-            // Collect form data
+            // Collect enhanced form data
             const formData = {
+                // Basic info
                 name: document.getElementById('name').value,
                 email: document.getElementById('email').value,
                 company: document.getElementById('company').value,
+                jobTitle: document.getElementById('jobTitle')?.value || '',
+                phone: document.getElementById('phone')?.value || '',
+                
+                // Business needs
+                objective: document.getElementById('objective')?.value || '',
+                customObjective: document.getElementById('customObjective')?.value || '',
+                companySize: document.getElementById('companySize')?.value || '',
+                budget: document.getElementById('budget')?.value || '',
+                decisionMaker: document.getElementById('decisionMaker')?.value || '',
+                
+                // Timing
+                timeline: document.getElementById('timeline')?.value || '',
+                preferredCallTime: document.getElementById('preferredCallTime')?.value || '',
+                
+                // Message
                 message: document.getElementById('message').value,
+                
+                // Hidden tracking fields
+                pageSource: document.getElementById('pageSource')?.value || '',
+                timeOnSite: document.getElementById('timeOnSite')?.value || '',
+                pagesVisited: document.getElementById('pagesVisited')?.value || '',
+                userAgent: document.getElementById('userAgent')?.value || '',
+                referrer: document.getElementById('referrer')?.value || '',
+                
+                // System fields
                 region: regionSelector ? regionSelector.value : 'dubai',
                 language: localStorage.getItem('selectedLanguage') || 'en'
             };
+            
+            // Calculate lead score
+            formData.leadScore = calculateLeadScore(formData);
             
             // Submit to ClickUp (function defined in clickup-integration.js)
             if (window.submitToClickUp) {
@@ -206,6 +237,199 @@ document.addEventListener('DOMContentLoaded', function() {
                 alert('Error: Form submission not configured. Please contact hello@axle-ia.com directly.');
             }
         });
+    }
+    
+    // Setup enhanced form conditional logic
+    function setupEnhancedFormLogic() {
+        // Track page load time for time on site calculation
+        if (!window.pageLoadTime) {
+            window.pageLoadTime = Date.now();
+        }
+        
+        // Populate tracking fields
+        populateTrackingFields();
+        
+        // Setup conditional fields
+        setupConditionalFields();
+        
+        // Setup form validation
+        setupFormValidation();
+    }
+    
+    function populateTrackingFields() {
+        // Page source
+        const pageSourceField = document.getElementById('pageSource');
+        if (pageSourceField) pageSourceField.value = window.location.href;
+        
+        // Time on site
+        const timeOnSiteField = document.getElementById('timeOnSite');
+        if (timeOnSiteField && window.pageLoadTime) {
+            const timeOnSite = Date.now() - window.pageLoadTime;
+            timeOnSiteField.value = Math.round(timeOnSite / 1000); // seconds
+        }
+        
+        // Pages visited (from sessionStorage)
+        const pagesVisitedField = document.getElementById('pagesVisited');
+        if (pagesVisitedField) {
+            let visited = sessionStorage.getItem('pagesVisited') || '0';
+            visited = parseInt(visited) + 1;
+            sessionStorage.setItem('pagesVisited', visited.toString());
+            pagesVisitedField.value = visited;
+        }
+        
+        // User agent
+        const userAgentField = document.getElementById('userAgent');
+        if (userAgentField) userAgentField.value = navigator.userAgent;
+        
+        // Referrer
+        const referrerField = document.getElementById('referrer');
+        if (referrerField) referrerField.value = document.referrer || 'Direct';
+    }
+    
+    function setupConditionalFields() {
+        // Budget-based logic
+        const budgetField = document.getElementById('budget');
+        const decisionMakerSection = document.getElementById('decisionMakerSection');
+        
+        if (budgetField && decisionMakerSection) {
+            budgetField.addEventListener('change', function() {
+                const budget = this.value;
+                if (budget === '15k-50k' || budget === 'over-50k') {
+                    decisionMakerSection.style.display = 'block';
+                    setTimeout(() => {
+                        decisionMakerSection.style.opacity = '1';
+                        decisionMakerSection.style.maxHeight = '200px';
+                    }, 10);
+                } else {
+                    decisionMakerSection.style.opacity = '0';
+                    decisionMakerSection.style.maxHeight = '0';
+                    setTimeout(() => {
+                        decisionMakerSection.style.display = 'none';
+                    }, 300);
+                }
+            });
+        }
+        
+        // Timeline-based logic
+        const timelineField = document.getElementById('timeline');
+        const urgentCallSection = document.getElementById('urgentCallSection');
+        
+        if (timelineField && urgentCallSection) {
+            timelineField.addEventListener('change', function() {
+                const timeline = this.value;
+                if (timeline === 'immediate') {
+                    urgentCallSection.style.display = 'block';
+                    setTimeout(() => {
+                        urgentCallSection.style.opacity = '1';
+                        urgentCallSection.style.maxHeight = '200px';
+                    }, 10);
+                } else {
+                    urgentCallSection.style.opacity = '0';
+                    urgentCallSection.style.maxHeight = '0';
+                    setTimeout(() => {
+                        urgentCallSection.style.display = 'none';
+                    }, 300);
+                }
+            });
+        }
+        
+        // Objective-based logic
+        const objectiveField = document.getElementById('objective');
+        const customObjectiveGroup = document.getElementById('customObjectiveGroup');
+        
+        if (objectiveField && customObjectiveGroup) {
+            objectiveField.addEventListener('change', function() {
+                const objective = this.value;
+                if (objective === 'other' || objective === 'custom') {
+                    customObjectiveGroup.style.display = 'block';
+                    setTimeout(() => {
+                        customObjectiveGroup.style.opacity = '1';
+                        customObjectiveGroup.style.maxHeight = '200px';
+                    }, 10);
+                } else {
+                    customObjectiveGroup.style.opacity = '0';
+                    customObjectiveGroup.style.maxHeight = '0';
+                    setTimeout(() => {
+                        customObjectiveGroup.style.display = 'none';
+                    }, 300);
+                }
+            });
+        }
+    }
+    
+    function setupFormValidation() {
+        // Real-time validation
+        const requiredFields = contactForm.querySelectorAll('[required]');
+        requiredFields.forEach(field => {
+            field.addEventListener('blur', function() {
+                validateField(this);
+            });
+        });
+    }
+    
+    function validateField(field) {
+        const isValid = field.checkValidity();
+        if (isValid) {
+            field.classList.remove('invalid');
+            field.classList.add('valid');
+        } else {
+            field.classList.remove('valid');
+            field.classList.add('invalid');
+        }
+    }
+    
+    function calculateLeadScore(formData) {
+        let score = 0;
+        
+        // Budget scoring
+        const budgetScores = {
+            'under-1k': 10,
+            '1k-5k': 25,
+            '5k-15k': 50,
+            '15k-50k': 75,
+            'over-50k': 100,
+            'discuss': 60
+        };
+        score += budgetScores[formData.budget] || 0;
+        
+        // Company size scoring
+        const sizeScores = {
+            'startup': 20,
+            'sme': 40,
+            'medium': 70,
+            'large': 90
+        };
+        score += sizeScores[formData.companySize] || 0;
+        
+        // Timeline urgency scoring
+        const timelineScores = {
+            'immediate': 50,
+            'month': 40,
+            'quarter': 25,
+            'semester': 10,
+            'undefined': 5
+        };
+        score += timelineScores[formData.timeline] || 0;
+        
+        // Decision maker scoring
+        const decisionScores = {
+            'yes': 30,
+            'partial': 20,
+            'no': 5
+        };
+        score += decisionScores[formData.decisionMaker] || 0;
+        
+        // Contact info completeness
+        if (formData.phone) score += 10;
+        if (formData.jobTitle) score += 10;
+        if (formData.message && formData.message.length > 50) score += 15;
+        
+        // Time on site bonus
+        const timeOnSite = parseInt(formData.timeOnSite) || 0;
+        if (timeOnSite > 120) score += 10; // More than 2 minutes
+        if (timeOnSite > 300) score += 15; // More than 5 minutes
+        
+        return Math.min(score, 100); // Cap at 100
     }
     
     // ======================

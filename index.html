@@ -345,24 +345,156 @@
                 <h3 data-translate="modal_title">Get Started with Axle IA</h3>
                 <button class="modal-close" id="closeModal" aria-label="Close modal">&times;</button>
             </div>
-            <form id="contactForm" class="contact-form">
-                <div class="form-group">
-                    <label for="name" data-translate="form_name">Name</label>
-                    <input type="text" id="name" name="name" required>
+            <form id="contactForm" class="contact-form enhanced-form">
+                <!-- Informations de Base -->
+                <div class="form-section">
+                    <h4 class="form-section-title" data-translate="form_section_basic">📋 Informations de Base</h4>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="name" data-translate="form_name">Nom complet</label>
+                            <input type="text" id="name" name="name" required placeholder="Ex: Jean Dupont">
+                        </div>
+                        <div class="form-group">
+                            <label for="email" data-translate="form_email">Email professionnel</label>
+                            <input type="email" id="email" name="email" required placeholder="Ex: jean.dupont@entreprise.com">
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="company" data-translate="form_company">Entreprise</label>
+                            <input type="text" id="company" name="company" required placeholder="Ex: Tech Solutions SARL">
+                        </div>
+                        <div class="form-group">
+                            <label for="jobTitle" data-translate="form_position">Poste/Fonction</label>
+                            <input type="text" id="jobTitle" name="jobTitle" placeholder="Ex: Directeur Général">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="phone" data-translate="form_phone">Téléphone</label>
+                        <input type="tel" id="phone" name="phone" placeholder="Ex: +971 50 123 4567">
+                    </div>
                 </div>
-                <div class="form-group">
-                    <label for="email" data-translate="form_email">Email</label>
-                    <input type="email" id="email" name="email" required>
+
+                <!-- Besoins Business -->
+                <div class="form-section">
+                    <h4 class="form-section-title" data-translate="form_section_business">🎯 Besoins Business</h4>
+                    
+                    <div class="form-group">
+                        <label for="objective" data-translate="form_objective">Objectif principal</label>
+                        <select id="objective" name="objective" required>
+                            <option value="" data-translate="form_select_objective">Sélectionnez votre objectif</option>
+                            <option value="automation" data-translate="form_obj_automation">Automatisation des processus</option>
+                            <option value="chatbot" data-translate="form_obj_chatbot">Chatbot client</option>
+                            <option value="data-analysis" data-translate="form_obj_data">Analyse de données IA</option>
+                            <option value="marketing" data-translate="form_obj_marketing">Marketing digital IA</option>
+                            <option value="custom" data-translate="form_obj_custom">Solution personnalisée</option>
+                            <option value="other" data-translate="form_obj_other">Autre</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group" id="customObjectiveGroup" style="display: none;">
+                        <label for="customObjective" data-translate="form_custom_objective">Précisez votre objectif</label>
+                        <input type="text" id="customObjective" name="customObjective" placeholder="Décrivez votre besoin spécifique">
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="companySize" data-translate="form_company_size">Taille d'entreprise</label>
+                            <select id="companySize" name="companySize" required>
+                                <option value="" data-translate="form_select_size">Sélectionnez la taille</option>
+                                <option value="startup" data-translate="form_size_startup">Startup (1-10 employés)</option>
+                                <option value="sme" data-translate="form_size_sme">PME (11-50 employés)</option>
+                                <option value="medium" data-translate="form_size_medium">Moyenne entreprise (51-200)</option>
+                                <option value="large" data-translate="form_size_large">Grande entreprise (200+)</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="budget" data-translate="form_budget">Budget mensuel envisagé</label>
+                            <select id="budget" name="budget" required>
+                                <option value="" data-translate="form_select_budget">Sélectionnez votre budget</option>
+                                <option value="under-1k" data-translate="form_budget_1k">< 1,000€</option>
+                                <option value="1k-5k" data-translate="form_budget_1k5k">1,000€ - 5,000€</option>
+                                <option value="5k-15k" data-translate="form_budget_5k15k">5,000€ - 15,000€</option>
+                                <option value="15k-50k" data-translate="form_budget_15k50k">15,000€ - 50,000€</option>
+                                <option value="over-50k" data-translate="form_budget_50k">+ 50,000€</option>
+                                <option value="discuss" data-translate="form_budget_discuss">À discuter</option>
+                            </select>
+                        </div>
+                    </div>
                 </div>
-                <div class="form-group">
-                    <label for="company" data-translate="form_company">Company</label>
-                    <input type="text" id="company" name="company">
+
+                <!-- Questions pour budgets élevés -->
+                <div class="form-section" id="decisionMakerSection" style="display: none;">
+                    <div class="form-group">
+                        <label for="decisionMaker" data-translate="form_decision_maker">Êtes-vous le décideur final pour ce projet ?</label>
+                        <select id="decisionMaker" name="decisionMaker">
+                            <option value="" data-translate="form_select_decision">Sélectionnez</option>
+                            <option value="yes" data-translate="form_decision_yes">Oui, je suis le décideur</option>
+                            <option value="partial" data-translate="form_decision_partial">Partiellement, j'influence la décision</option>
+                            <option value="no" data-translate="form_decision_no">Non, je dois consulter d'autres personnes</option>
+                        </select>
+                    </div>
                 </div>
-                <div class="form-group">
-                    <label for="message" data-translate="form_message">Message</label>
-                    <textarea id="message" name="message" rows="4" required></textarea>
+
+                <!-- Urgence -->
+                <div class="form-section">
+                    <h4 class="form-section-title" data-translate="form_section_timing">⏰ Urgence & Timing</h4>
+                    
+                    <div class="form-group">
+                        <label for="timeline" data-translate="form_timeline">Quand souhaitez-vous démarrer ?</label>
+                        <select id="timeline" name="timeline" required>
+                            <option value="" data-translate="form_select_timeline">Sélectionnez votre urgence</option>
+                            <option value="immediate" data-translate="form_timeline_immediate">Immédiatement</option>
+                            <option value="month" data-translate="form_timeline_month">Dans le mois</option>
+                            <option value="quarter" data-translate="form_timeline_quarter">Dans 2-3 mois</option>
+                            <option value="semester" data-translate="form_timeline_semester">Dans 6 mois</option>
+                            <option value="undefined" data-translate="form_timeline_undefined">Pas encore défini</option>
+                        </select>
+                    </div>
+                    
+                    <!-- Champ conditionnel pour urgence immédiate -->
+                    <div class="form-group" id="urgentCallSection" style="display: none;">
+                        <label for="preferredCallTime" data-translate="form_call_time">Meilleur créneau pour un appel</label>
+                        <select id="preferredCallTime" name="preferredCallTime">
+                            <option value="" data-translate="form_select_call">Sélectionnez un créneau</option>
+                            <option value="morning" data-translate="form_call_morning">Matin (9h-12h)</option>
+                            <option value="afternoon" data-translate="form_call_afternoon">Après-midi (14h-17h)</option>
+                            <option value="evening" data-translate="form_call_evening">Fin de journée (17h-19h)</option>
+                            <option value="flexible" data-translate="form_call_flexible">Flexible</option>
+                        </select>
+                    </div>
                 </div>
-                <button type="submit" class="submit-button" data-translate="form_submit">Submit</button>
+
+                <!-- Message personnalisé -->
+                <div class="form-section">
+                    <h4 class="form-section-title" data-translate="form_section_message">💬 Message Personnalisé</h4>
+                    
+                    <div class="form-group">
+                        <label for="message" data-translate="form_message">Décrivez votre projet ou défi actuel</label>
+                        <textarea id="message" name="message" rows="4" 
+                            placeholder="Ex: Nous souhaitons automatiser notre service client et réduire les temps de réponse..." 
+                            data-translate-placeholder="form_message_placeholder"></textarea>
+                    </div>
+                </div>
+
+                <!-- Champs cachés pour tracking -->
+                <input type="hidden" id="pageSource" name="pageSource" value="">
+                <input type="hidden" id="timeOnSite" name="timeOnSite" value="">
+                <input type="hidden" id="pagesVisited" name="pagesVisited" value="">
+                <input type="hidden" id="userAgent" name="userAgent" value="">
+                <input type="hidden" id="referrer" name="referrer" value="">
+
+                <button type="submit" class="btn-primary submit-button enhanced-submit" data-translate="form_submit">
+                    <span class="submit-text">Démarrer mon projet IA</span>
+                    <span class="submit-loader" style="display: none;">⏳ Envoi en cours...</span>
+                </button>
+                
+                <p class="form-privacy" data-translate="form_privacy">
+                    🔒 Vos données sont sécurisées et ne seront jamais partagées avec des tiers.
+                </p>
             </form>
         </div>
     </div>

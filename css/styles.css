@@ -858,3 +858,234 @@ a {
 ::-webkit-scrollbar-thumb:hover {
     background: var(--secondary-color);
 }
+
+/* ============================================
+   ENHANCED FORM STYLES
+============================================ */
+
+/* Enhanced Form Container */
+.enhanced-form {
+    max-height: 80vh;
+    overflow-y: auto;
+    padding: 1.5rem !important;
+}
+
+/* Form Sections */
+.form-section {
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    background: var(--bg-light);
+    border-radius: 8px;
+    border-left: 4px solid var(--primary-color);
+}
+
+.form-section-title {
+    margin: 0 0 1.5rem 0;
+    font-size: 1.1rem;
+    font-weight: var(--font-weight-semibold);
+    color: var(--primary-color);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* Form Rows for side-by-side fields */
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+@media (max-width: 768px) {
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+}
+
+/* Enhanced Form Groups */
+.enhanced-form .form-group {
+    margin-bottom: 1.2rem;
+}
+
+.enhanced-form .form-group label {
+    font-weight: var(--font-weight-medium);
+    color: var(--text-dark);
+    margin-bottom: 0.6rem;
+    font-size: 0.95rem;
+}
+
+/* Enhanced Input Styles */
+.enhanced-form input,
+.enhanced-form select,
+.enhanced-form textarea {
+    padding: 0.8rem 1rem;
+    border: 2px solid var(--border-color);
+    border-radius: 6px;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+    background: var(--white);
+}
+
+.enhanced-form input:focus,
+.enhanced-form select:focus,
+.enhanced-form textarea:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(0, 102, 255, 0.1);
+    outline: none;
+}
+
+/* Select Dropdowns */
+.enhanced-form select {
+    cursor: pointer;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6,9 12,15 18,9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 0.7rem center;
+    background-size: 1em;
+    padding-right: 2.5rem;
+}
+
+/* Placeholder Styles */
+.enhanced-form input::placeholder,
+.enhanced-form textarea::placeholder {
+    color: var(--text-light);
+    font-style: italic;
+}
+
+/* Enhanced Submit Button */
+.enhanced-submit {
+    width: 100%;
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+    font-weight: var(--font-weight-semibold);
+    border-radius: 8px;
+    margin-top: 1.5rem;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.enhanced-submit:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 102, 255, 0.3);
+}
+
+.enhanced-submit:active {
+    transform: translateY(0);
+}
+
+.enhanced-submit .submit-loader {
+    display: none;
+}
+
+.enhanced-submit.loading .submit-text {
+    display: none;
+}
+
+.enhanced-submit.loading .submit-loader {
+    display: inline;
+}
+
+/* Privacy Notice */
+.form-privacy {
+    text-align: center;
+    font-size: 0.85rem;
+    color: var(--text-light);
+    margin-top: 1rem;
+    padding: 0.8rem;
+    background: rgba(0, 102, 255, 0.05);
+    border-radius: 6px;
+    border: 1px solid rgba(0, 102, 255, 0.1);
+}
+
+/* Conditional Fields Animation */
+.form-group {
+    transition: all 0.3s ease;
+}
+
+.form-group[style*="none"] {
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+}
+
+/* Success and Error Messages in Enhanced Form */
+.enhanced-form .success-message,
+.enhanced-form .error-message {
+    margin: 1rem 0;
+    padding: 1rem;
+    border-radius: 8px;
+    font-weight: var(--font-weight-medium);
+    text-align: center;
+}
+
+.enhanced-form .success-message {
+    background: linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%);
+    border: 1px solid #b8dacc;
+    color: #155724;
+}
+
+.enhanced-form .error-message {
+    background: linear-gradient(135deg, #f8d7da 0%, #f5c6cb 100%);
+    border: 1px solid #f1b0b7;
+    color: #721c24;
+}
+
+/* Modal Content Adjustments for Enhanced Form */
+.modal-content:has(.enhanced-form) {
+    max-width: 750px;
+    margin: 1% auto;
+}
+
+/* Required Field Indicator */
+.enhanced-form label[required]::after,
+.enhanced-form label:has(+ input[required])::after,
+.enhanced-form label:has(+ select[required])::after,
+.enhanced-form label:has(+ textarea[required])::after {
+    content: " *";
+    color: #e74c3c;
+    font-weight: bold;
+}
+
+/* Loading State */
+.enhanced-form.loading {
+    pointer-events: none;
+    opacity: 0.7;
+}
+
+/* Improved Focus Management */
+.enhanced-form input:invalid:not(:placeholder-shown),
+.enhanced-form select:invalid:not(:placeholder-shown) {
+    border-color: #e74c3c;
+    box-shadow: 0 0 0 3px rgba(231, 76, 60, 0.1);
+}
+
+.enhanced-form input:valid:not(:placeholder-shown),
+.enhanced-form select:valid:not(:placeholder-shown) {
+    border-color: #27ae60;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .modal-content:has(.enhanced-form) {
+        margin: 5% auto;
+        width: 95%;
+        max-height: 90vh;
+    }
+    
+    .enhanced-form {
+        padding: 1rem !important;
+    }
+    
+    .form-section {
+        padding: 1rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .form-section-title {
+        font-size: 1rem;
+    }
+}

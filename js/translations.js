@@ -70,7 +70,65 @@ const translations = {
         form_email: "Email",
         form_company: "Company",
         form_message: "Message",
-        form_submit: "Submit"
+        form_submit: "Start My AI Project",
+        
+        // Enhanced Form Fields
+        form_section_basic: "📋 Basic Information",
+        form_section_business: "🎯 Business Needs", 
+        form_section_timing: "⏰ Urgency & Timing",
+        form_section_message: "💬 Personalized Message",
+        
+        form_position: "Position/Role",
+        form_phone: "Phone",
+        form_objective: "Main Objective",
+        form_select_objective: "Select your objective",
+        form_obj_automation: "Process Automation",
+        form_obj_chatbot: "Customer Chatbot",
+        form_obj_data: "AI Data Analysis",
+        form_obj_marketing: "AI Digital Marketing", 
+        form_obj_custom: "Custom Solution",
+        form_obj_other: "Other",
+        form_custom_objective: "Specify your objective",
+        
+        form_company_size: "Company Size",
+        form_select_size: "Select company size",
+        form_size_startup: "Startup (1-10 employees)",
+        form_size_sme: "SME (11-50 employees)",
+        form_size_medium: "Medium company (51-200)",
+        form_size_large: "Large company (200+)",
+        
+        form_budget: "Monthly Budget Range",
+        form_select_budget: "Select your budget",
+        form_budget_1k: "< €1,000",
+        form_budget_1k5k: "€1,000 - €5,000",
+        form_budget_5k15k: "€5,000 - €15,000", 
+        form_budget_15k50k: "€15,000 - €50,000",
+        form_budget_50k: "+ €50,000",
+        form_budget_discuss: "To be discussed",
+        
+        form_decision_maker: "Are you the final decision maker for this project?",
+        form_select_decision: "Select",
+        form_decision_yes: "Yes, I am the decision maker",
+        form_decision_partial: "Partially, I influence the decision",
+        form_decision_no: "No, I need to consult others",
+        
+        form_timeline: "When would you like to start?",
+        form_select_timeline: "Select your urgency",
+        form_timeline_immediate: "Immediately",
+        form_timeline_month: "Within a month",
+        form_timeline_quarter: "Within 2-3 months",
+        form_timeline_semester: "Within 6 months",
+        form_timeline_undefined: "Not yet defined",
+        
+        form_call_time: "Best time slot for a call",
+        form_select_call: "Select a time slot",
+        form_call_morning: "Morning (9am-12pm)",
+        form_call_afternoon: "Afternoon (2pm-5pm)",
+        form_call_evening: "End of day (5pm-7pm)",
+        form_call_flexible: "Flexible",
+        
+        form_message_placeholder: "E.g.: We want to automate our customer service and reduce response times...",
+        form_privacy: "🔒 Your data is secure and will never be shared with third parties."
     },
     
     fr: {
@@ -143,7 +201,65 @@ const translations = {
         form_email: "Email",
         form_company: "Entreprise", 
         form_message: "Message",
-        form_submit: "Envoyer"
+        form_submit: "Démarrer mon projet IA",
+        
+        // Enhanced Form Fields - French
+        form_section_basic: "📋 Informations de Base",
+        form_section_business: "🎯 Besoins Business", 
+        form_section_timing: "⏰ Urgence & Timing",
+        form_section_message: "💬 Message Personnalisé",
+        
+        form_position: "Poste/Fonction",
+        form_phone: "Téléphone",
+        form_objective: "Objectif principal",
+        form_select_objective: "Sélectionnez votre objectif",
+        form_obj_automation: "Automatisation des processus",
+        form_obj_chatbot: "Chatbot client",
+        form_obj_data: "Analyse de données IA",
+        form_obj_marketing: "Marketing digital IA", 
+        form_obj_custom: "Solution personnalisée",
+        form_obj_other: "Autre",
+        form_custom_objective: "Précisez votre objectif",
+        
+        form_company_size: "Taille d'entreprise",
+        form_select_size: "Sélectionnez la taille",
+        form_size_startup: "Startup (1-10 employés)",
+        form_size_sme: "PME (11-50 employés)",
+        form_size_medium: "Moyenne entreprise (51-200)",
+        form_size_large: "Grande entreprise (200+)",
+        
+        form_budget: "Budget mensuel envisagé",
+        form_select_budget: "Sélectionnez votre budget",
+        form_budget_1k: "< 1,000€",
+        form_budget_1k5k: "1,000€ - 5,000€",
+        form_budget_5k15k: "5,000€ - 15,000€", 
+        form_budget_15k50k: "15,000€ - 50,000€",
+        form_budget_50k: "+ 50,000€",
+        form_budget_discuss: "À discuter",
+        
+        form_decision_maker: "Êtes-vous le décideur final pour ce projet ?",
+        form_select_decision: "Sélectionnez",
+        form_decision_yes: "Oui, je suis le décideur",
+        form_decision_partial: "Partiellement, j'influence la décision",
+        form_decision_no: "Non, je dois consulter d'autres personnes",
+        
+        form_timeline: "Quand souhaitez-vous démarrer ?",
+        form_select_timeline: "Sélectionnez votre urgence",
+        form_timeline_immediate: "Immédiatement",
+        form_timeline_month: "Dans le mois",
+        form_timeline_quarter: "Dans 2-3 mois",
+        form_timeline_semester: "Dans 6 mois",
+        form_timeline_undefined: "Pas encore défini",
+        
+        form_call_time: "Meilleur créneau pour un appel",
+        form_select_call: "Sélectionnez un créneau",
+        form_call_morning: "Matin (9h-12h)",
+        form_call_afternoon: "Après-midi (14h-17h)",
+        form_call_evening: "Fin de journée (17h-19h)",
+        form_call_flexible: "Flexible",
+        
+        form_message_placeholder: "Ex: Nous souhaitons automatiser notre service client et réduire les temps de réponse...",
+        form_privacy: "🔒 Vos données sont sécurisées et ne seront jamais partagées avec des tiers."
     }
 };
 

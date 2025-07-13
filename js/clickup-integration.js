@@ -98,32 +98,48 @@ ${formData.coverLetter || 'Aucune lettre de motivation fournie'}
             ];
             
             description = `
-**🚀 NOUVEAU CONTACT - GET STARTED**
+**🎯 NOUVEAU LEAD QUALIFIÉ - SITE WEB**
 
-**👤 Informations Contact:**
+**📊 SCORE LEAD: ${formData.leadScore || 0}/100 - ${getLeadQualityText(formData.leadScore || 0)}**
+
+**👤 INFORMATIONS CONTACT:**
 - **Nom:** ${formData.name}
 - **Email:** ${formData.email}
-- **Entreprise:** ${formData.company || 'Non spécifiée'}
+- **Entreprise:** ${formData.company || 'Non fourni'}
+- **Poste:** ${formData.jobTitle || 'Non fourni'}
+- **Téléphone:** ${formData.phone || 'Non fourni'}
 
-**🌍 Localisation:**
+**🌍 LOCALISATION:**
 - **Région:** ${formData.region === 'dubai' ? 'Dubai, UAE' : 'Abidjan, Côte d\'Ivoire'}
 - **Langue préférée:** ${formData.language === 'en' ? 'Anglais' : 'Français'}
 
-**💬 Message du prospect:**
-${formData.message || 'Aucun message spécifique'}
+**💼 BESOINS BUSINESS:**
+- **Objectif principal:** ${getObjectiveText(formData.objective)}
+${formData.customObjective ? `- **Objectif personnalisé:** ${formData.customObjective}` : ''}
+- **Taille entreprise:** ${getCompanySizeText(formData.companySize)}
+- **Budget mensuel:** ${getBudgetText(formData.budget)}
+${formData.decisionMaker ? `- **Décideur final:** ${getDecisionMakerText(formData.decisionMaker)}` : ''}
+
+**⏰ URGENCE & TIMING:**
+- **Délai souhaité:** ${getTimelineText(formData.timeline)}
+${formData.preferredCallTime ? `- **Créneau préféré:** ${getCallTimeText(formData.preferredCallTime)}` : ''}
+
+**💬 MESSAGE:**
+${formData.message || 'Aucun message fourni'}
+
+**📈 DONNÉES COMPORTEMENTALES:**
+- **Temps sur le site:** ${formData.timeOnSite ? Math.round(formData.timeOnSite/60) + ' minutes' : 'Non mesuré'}
+- **Pages visitées:** ${formData.pagesVisited || '1'}
+- **Source:** ${formData.referrer || 'Direct'}
+- **Appareil:** ${getDeviceInfo(formData.userAgent)}
+
+**📅 PROCHAINES ACTIONS RECOMMANDÉES:**
+${getRecommendedActions(formData)}
 
 ---
-**📅 Contact reçu:** ${new Date().toLocaleString('fr-FR')}  
-**🌐 Source:** Site Web Axle IA - Formulaire "Get Started"  
-**🎯 Intérêt:** Services IA pour entreprise  
-**🔄 Statut:** Nouveau lead - À recontacter
-
-**🎯 Prochaines étapes:**
-1. ✅ Réception du contact  
-2. 📞 Appel de qualification (24-48h)  
-3. 📋 Présentation des services  
-4. 💼 Proposition commerciale  
-5. 🤝 Signature contrat
+**🕒 Contact soumis:** ${new Date().toLocaleString('fr-FR')}  
+**🌐 Source:** Site Web Axle IA - Formulaire Get Started Enhanced  
+**🔄 Statut:** ${formData.leadScore >= 60 ? 'Lead Qualifié' : 'Nouveau Contact'}
             `;
         }
         
@@ -314,4 +330,122 @@ function showErrorMessage(errorDetails = '') {
             errorMsg.remove();
         }
     }, 8000);
+}
+
+// ==============================================
+// HELPER FUNCTIONS FOR ENHANCED FORM DATA
+// ==============================================
+
+function getObjectiveText(objective) {
+    const objectives = {
+        'automation': 'Automatisation des processus',
+        'chatbot': 'Chatbot client',
+        'data-analysis': 'Analyse de données IA',
+        'marketing': 'Marketing digital IA',
+        'custom': 'Solution personnalisée',
+        'other': 'Autre'
+    };
+    return objectives[objective] || objective || 'Non spécifié';
+}
+
+function getCompanySizeText(size) {
+    const sizes = {
+        'startup': 'Startup (1-10 employés)',
+        'sme': 'PME (11-50 employés)',
+        'medium': 'Moyenne entreprise (51-200)',
+        'large': 'Grande entreprise (200+)'
+    };
+    return sizes[size] || size || 'Non spécifié';
+}
+
+function getBudgetText(budget) {
+    const budgets = {
+        'under-1k': '< 1,000€',
+        '1k-5k': '1,000€ - 5,000€',
+        '5k-15k': '5,000€ - 15,000€',
+        '15k-50k': '15,000€ - 50,000€',
+        'over-50k': '+ 50,000€',
+        'discuss': 'À discuter'
+    };
+    return budgets[budget] || budget || 'Non spécifié';
+}
+
+function getDecisionMakerText(decision) {
+    const decisions = {
+        'yes': 'Oui, décideur final',
+        'partial': 'Influence partielle sur la décision',
+        'no': 'Doit consulter d\'autres personnes'
+    };
+    return decisions[decision] || decision || 'Non spécifié';
+}
+
+function getTimelineText(timeline) {
+    const timelines = {
+        'immediate': 'Immédiatement',
+        'month': 'Dans le mois',
+        'quarter': 'Dans 2-3 mois',
+        'semester': 'Dans 6 mois',
+        'undefined': 'Pas encore défini'
+    };
+    return timelines[timeline] || timeline || 'Non spécifié';
+}
+
+function getCallTimeText(callTime) {
+    const times = {
+        'morning': 'Matin (9h-12h)',
+        'afternoon': 'Après-midi (14h-17h)',
+        'evening': 'Fin de journée (17h-19h)',
+        'flexible': 'Flexible'
+    };
+    return times[callTime] || callTime || 'Non spécifié';
+}
+
+function getDeviceInfo(userAgent) {
+    if (!userAgent) return 'Non détecté';
+    
+    if (userAgent.includes('Mobile')) return 'Mobile';
+    if (userAgent.includes('Tablet')) return 'Tablette';
+    if (userAgent.includes('Windows')) return 'Windows Desktop';
+    if (userAgent.includes('Mac')) return 'Mac Desktop';
+    if (userAgent.includes('Linux')) return 'Linux Desktop';
+    
+    return 'Desktop';
+}
+
+function getRecommendedActions(formData) {
+    const actions = [];
+    const score = formData.leadScore || 0;
+    
+    if (score >= 80) {
+        actions.push('🔥 LEAD CHAUD - Appeler dans les 2h');
+        actions.push('📞 Programmer démo personnalisée');
+    } else if (score >= 60) {
+        actions.push('⚡ LEAD QUALIFIÉ - Appeler dans 24h');
+        actions.push('📧 Envoyer présentation entreprise');
+    } else if (score >= 40) {
+        actions.push('📧 Ajouter à séquence email nurturing');
+        actions.push('📅 Programmer rappel dans 1 semaine');
+    } else {
+        actions.push('📧 Envoyer contenu éducatif');
+        actions.push('📅 Programmer rappel dans 2 semaines');
+    }
+    
+    // Actions spécifiques selon l'urgence
+    if (formData.timeline === 'immediate') {
+        actions.unshift('🚨 URGENCE - Contact prioritaire');
+    }
+    
+    // Actions spécifiques selon le budget
+    if (formData.budget === 'over-50k') {
+        actions.push('💰 BUDGET ÉLEVÉ - Assigner au directeur commercial');
+    }
+    
+    return actions.map((action, index) => `${index + 1}. ${action}`).join('\n');
+}
+
+function getLeadQualityText(score) {
+    if (score >= 80) return '🔥 CHAUD';
+    if (score >= 60) return '⚡ QUALIFIÉ';
+    if (score >= 40) return '📧 TIÈDE';
+    return '❄️ FROID';
 }

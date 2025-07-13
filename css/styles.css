@@ -648,6 +648,32 @@ a {
     transform: translateY(-2px);
 }
 
+.footer-stats {
+    display: flex;
+    gap: 1.5rem;
+    margin: 1.5rem 0;
+    flex-wrap: wrap;
+}
+
+.footer-stat {
+    text-align: center;
+}
+
+.footer-stat .stat-number {
+    display: block;
+    font-size: 1.5rem;
+    font-weight: var(--font-weight-extrabold);
+    color: var(--primary-color);
+    line-height: 1;
+    margin-bottom: 0.25rem;
+}
+
+.footer-stat .stat-label {
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.7);
+    font-weight: var(--font-weight-medium);
+}
+
 .contact-location {
     margin-bottom: 1rem;
 }

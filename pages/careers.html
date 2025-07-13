@@ -1,0 +1,1122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Join Axle IA - Careers in AI and technology. Open positions in Dubai and Côte d'Ivoire for AI engineers, developers, and consultants.">
+    <meta name="keywords" content="AI Jobs, Tech Careers, Dubai Jobs, Côte d'Ivoire Jobs, AI Engineer, Machine Learning, Software Developer">
+    <meta name="author" content="Axle IA">
+    <title>Careers - Axle IA</title>
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="../assets/favicon.ico">
+    
+    <style>
+        /* Careers-specific styles */
+        .careers-hero {
+            background: linear-gradient(135deg, #0066ff 0%, #003d99 100%);
+            padding: 140px 0 80px;
+            text-align: center;
+            color: var(--bg-white);
+        }
+        
+        .careers-hero .hero-title {
+            color: var(--bg-white);
+            background: none;
+            -webkit-text-fill-color: var(--bg-white);
+        }
+        
+        .careers-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+        
+        .careers-section {
+            padding: 80px 0;
+        }
+        
+        .careers-intro {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        
+        .careers-intro h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+        }
+        
+        .careers-intro p {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+        
+        .jobs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+        
+        .job-card {
+            background: var(--bg-white);
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border-light);
+            transition: var(--transition);
+            position: relative;
+        }
+        
+        .job-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .job-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+            border-radius: 16px 16px 0 0;
+        }
+        
+        .job-header {
+            margin-bottom: 1.5rem;
+        }
+        
+        .job-title {
+            font-size: 1.5rem;
+            font-weight: var(--font-weight-bold);
+            color: var(--text-dark);
+            margin-bottom: 0.5rem;
+        }
+        
+        .job-meta {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-bottom: 1rem;
+        }
+        
+        .job-location,
+        .job-type,
+        .job-level {
+            background: var(--bg-light);
+            color: var(--text-medium);
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: var(--font-weight-medium);
+        }
+        
+        .job-location {
+            background: var(--primary-color);
+            color: var(--bg-white);
+        }
+        
+        .job-description {
+            color: var(--text-light);
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+        
+        .job-requirements {
+            margin-bottom: 1.5rem;
+        }
+        
+        .job-requirements h4 {
+            font-size: 1rem;
+            font-weight: var(--font-weight-semibold);
+            margin-bottom: 0.75rem;
+            color: var(--text-dark);
+        }
+        
+        .job-requirements ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .job-requirements li {
+            padding: 0.25rem 0;
+            color: var(--text-light);
+            position: relative;
+            padding-left: 1.5rem;
+        }
+        
+        .job-requirements li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+        
+        .apply-btn {
+            width: 100%;
+            padding: 0.75rem 1.5rem;
+            background: var(--primary-color);
+            color: var(--bg-white);
+            border: none;
+            border-radius: 8px;
+            font-weight: var(--font-weight-semibold);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .apply-btn:hover {
+            background: var(--secondary-color);
+            transform: translateY(-2px);
+        }
+        
+        .culture-section {
+            background: var(--bg-light);
+            padding: 80px 0;
+        }
+        
+        .culture-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .culture-item {
+            text-align: center;
+            padding: 2rem;
+            background: var(--bg-white);
+            border-radius: 12px;
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .culture-icon {
+            width: 64px;
+            height: 64px;
+            margin: 0 auto 1.5rem;
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--bg-white);
+            font-size: 1.5rem;
+        }
+        
+        .culture-title {
+            font-size: 1.25rem;
+            font-weight: var(--font-weight-bold);
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+        }
+        
+        .culture-description {
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+        
+        .benefits-section {
+            padding: 80px 0;
+        }
+        
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .benefit-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            padding: 1.5rem;
+            background: var(--bg-white);
+            border-radius: 12px;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border-light);
+        }
+        
+        .benefit-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--primary-color);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--bg-white);
+            flex-shrink: 0;
+        }
+        
+        .benefit-content {
+            flex: 1;
+        }
+        
+        .benefit-title {
+            font-size: 1.1rem;
+            font-weight: var(--font-weight-semibold);
+            margin-bottom: 0.5rem;
+            color: var(--text-dark);
+        }
+        
+        .benefit-description {
+            color: var(--text-light);
+            line-height: 1.5;
+        }
+        
+        /* Application Modal */
+        .application-modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(4px);
+        }
+        
+        .application-modal-content {
+            background-color: var(--bg-white);
+            margin: 2% auto;
+            border-radius: 16px;
+            width: 90%;
+            max-width: 600px;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: var(--shadow-xl);
+            animation: modalSlideIn 0.3s ease-out;
+        }
+        
+        .application-modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 2rem 2rem 1rem;
+            border-bottom: 1px solid var(--border-light);
+        }
+        
+        .application-modal-header h3 {
+            margin: 0;
+            font-size: 1.5rem;
+            color: var(--text-dark);
+        }
+        
+        .application-form {
+            padding: 2rem;
+        }
+        
+        .application-form .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .application-form label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: var(--font-weight-medium);
+            color: var(--text-dark);
+        }
+        
+        .application-form input,
+        .application-form select,
+        .application-form textarea {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            font-family: inherit;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+        
+        .application-form input:focus,
+        .application-form select:focus,
+        .application-form textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(0, 102, 255, 0.1);
+        }
+        
+        .file-upload {
+            position: relative;
+            display: inline-block;
+            width: 100%;
+        }
+        
+        .file-upload input[type="file"] {
+            position: absolute;
+            left: -9999px;
+        }
+        
+        .file-upload-label {
+            display: block;
+            padding: 0.75rem 1rem;
+            border: 2px dashed var(--border-color);
+            border-radius: 8px;
+            text-align: center;
+            cursor: pointer;
+            transition: var(--transition);
+            background: var(--bg-light);
+        }
+        
+        .file-upload-label:hover {
+            border-color: var(--primary-color);
+            background: rgba(0, 102, 255, 0.05);
+        }
+        
+        .selected-file {
+            margin-top: 0.5rem;
+            font-size: 0.9rem;
+            color: var(--primary-color);
+        }
+        
+        @media (max-width: 768px) {
+            .jobs-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .job-meta {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+            
+            .culture-grid,
+            .benefits-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .application-modal-content {
+                margin: 5% auto;
+                width: 95%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="container">
+                <div class="nav-brand">
+                    <a href="../index.html">
+                        <h1 class="logo">Axle IA</h1>
+                    </a>
+                </div>
+                
+                <div class="nav-menu" id="navMenu">
+                    <a href="../index.html#services" class="nav-link" data-translate="nav_services">Our Services</a>
+                    <a href="../index.html#process" class="nav-link" data-translate="nav_process">Our Process</a>
+                    <a href="../index.html#mission" class="nav-link" data-translate="nav_mission">Our Mission</a>
+                    <a href="blog.html" class="nav-link" data-translate="nav_blog">Blog</a>
+                    <a href="careers.html" class="nav-link" data-translate="nav_careers">Careers</a>
+                    
+                    <div class="nav-controls">
+                        <select id="regionSelector" class="region-selector" aria-label="Select region">
+                            <option value="dubai">🇦🇪 Dubai</option>
+                            <option value="ci">🇨🇮 Côte d'Ivoire</option>
+                        </select>
+                        <button id="langToggle" class="lang-toggle" aria-label="Toggle language">EN</button>
+                    </div>
+                </div>
+                
+                <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Careers Hero -->
+    <section class="careers-hero">
+        <div class="careers-container">
+            <h1 class="hero-title" data-translate="careers_title">Join the Future of AI</h1>
+            <p class="hero-subtitle" data-translate="careers_subtitle">
+                Build cutting-edge AI solutions and shape the future of business technology across Dubai and Côte d'Ivoire
+            </p>
+        </div>
+    </section>
+
+    <!-- Careers Introduction -->
+    <section class="careers-section">
+        <div class="careers-container">
+            <div class="careers-intro">
+                <h2 data-translate="careers_intro_title">Why Choose Axle IA?</h2>
+                <p data-translate="careers_intro_text">
+                    At Axle IA, we're not just building AI solutions – we're creating the future. Join our diverse team 
+                    of innovators, engineers, and visionaries who are passionate about transforming businesses through 
+                    artificial intelligence. We offer exciting opportunities across two dynamic regions: Dubai and Côte d'Ivoire.
+                </p>
+            </div>
+
+            <!-- Open Positions -->
+            <div class="jobs-grid">
+                <!-- AI Engineer Position -->
+                <div class="job-card">
+                    <div class="job-header">
+                        <h3 class="job-title" data-translate="job1_title">Senior AI Engineer</h3>
+                        <div class="job-meta">
+                            <span class="job-location" data-translate="job1_location">Dubai, UAE</span>
+                            <span class="job-type" data-translate="job_full_time">Full-time</span>
+                            <span class="job-level" data-translate="job_senior">Senior</span>
+                        </div>
+                    </div>
+                    <p class="job-description" data-translate="job1_description">
+                        Lead the development of advanced AI systems and machine learning models. Work with cutting-edge 
+                        technologies to solve complex business problems for our Dubai-based clients.
+                    </p>
+                    <div class="job-requirements">
+                        <h4 data-translate="job_requirements">Requirements:</h4>
+                        <ul>
+                            <li data-translate="job1_req1">5+ years experience in AI/ML development</li>
+                            <li data-translate="job1_req2">Expertise in Python, TensorFlow, PyTorch</li>
+                            <li data-translate="job1_req3">Experience with cloud platforms (AWS, Azure)</li>
+                            <li data-translate="job1_req4">Strong problem-solving and analytical skills</li>
+                        </ul>
+                    </div>
+                    <button class="apply-btn" onclick="openApplicationModal('Senior AI Engineer', 'Dubai')" data-translate="apply_now">
+                        Apply Now
+                    </button>
+                </div>
+
+                <!-- Full-Stack Developer Position -->
+                <div class="job-card">
+                    <div class="job-header">
+                        <h3 class="job-title" data-translate="job2_title">Full-Stack Developer</h3>
+                        <div class="job-meta">
+                            <span class="job-location" data-translate="job2_location">Abidjan, CI</span>
+                            <span class="job-type" data-translate="job_full_time">Full-time</span>
+                            <span class="job-level" data-translate="job_mid">Mid-level</span>
+                        </div>
+                    </div>
+                    <p class="job-description" data-translate="job2_description">
+                        Develop scalable web applications and integrate AI functionalities. Join our growing team 
+                        in Côte d'Ivoire and help build the next generation of AI-powered business solutions.
+                    </p>
+                    <div class="job-requirements">
+                        <h4 data-translate="job_requirements">Requirements:</h4>
+                        <ul>
+                            <li data-translate="job2_req1">3+ years experience in web development</li>
+                            <li data-translate="job2_req2">Proficiency in React, Node.js, databases</li>
+                            <li data-translate="job2_req3">Experience with API development and integration</li>
+                            <li data-translate="job2_req4">French and English proficiency</li>
+                        </ul>
+                    </div>
+                    <button class="apply-btn" onclick="openApplicationModal('Full-Stack Developer', 'Abidjan')" data-translate="apply_now">
+                        Apply Now
+                    </button>
+                </div>
+
+                <!-- AI Consultant Position -->
+                <div class="job-card">
+                    <div class="job-header">
+                        <h3 class="job-title" data-translate="job3_title">AI Business Consultant</h3>
+                        <div class="job-meta">
+                            <span class="job-location" data-translate="job3_location">Dubai, UAE</span>
+                            <span class="job-type" data-translate="job_full_time">Full-time</span>
+                            <span class="job-level" data-translate="job_senior">Senior</span>
+                        </div>
+                    </div>
+                    <p class="job-description" data-translate="job3_description">
+                        Bridge the gap between AI technology and business strategy. Help clients understand and 
+                        implement AI solutions that drive real business value and competitive advantage.
+                    </p>
+                    <div class="job-requirements">
+                        <h4 data-translate="job_requirements">Requirements:</h4>
+                        <ul>
+                            <li data-translate="job3_req1">5+ years in business consulting or strategy</li>
+                            <li data-translate="job3_req2">Strong understanding of AI technologies</li>
+                            <li data-translate="job3_req3">Excellent presentation and communication skills</li>
+                            <li data-translate="job3_req4">Experience in Middle East market preferred</li>
+                        </ul>
+                    </div>
+                    <button class="apply-btn" onclick="openApplicationModal('AI Business Consultant', 'Dubai')" data-translate="apply_now">
+                        Apply Now
+                    </button>
+                </div>
+
+                <!-- Data Scientist Position -->
+                <div class="job-card">
+                    <div class="job-header">
+                        <h3 class="job-title" data-translate="job4_title">Data Scientist</h3>
+                        <div class="job-meta">
+                            <span class="job-location" data-translate="job4_location">Remote</span>
+                            <span class="job-type" data-translate="job_full_time">Full-time</span>
+                            <span class="job-level" data-translate="job_mid">Mid-level</span>
+                        </div>
+                    </div>
+                    <p class="job-description" data-translate="job4_description">
+                        Extract insights from complex datasets and build predictive models. Work remotely while 
+                        collaborating with teams across Dubai and Côte d'Ivoire on exciting AI projects.
+                    </p>
+                    <div class="job-requirements">
+                        <h4 data-translate="job_requirements">Requirements:</h4>
+                        <ul>
+                            <li data-translate="job4_req1">3+ years experience in data science</li>
+                            <li data-translate="job4_req2">Expertise in Python, R, SQL</li>
+                            <li data-translate="job4_req3">Experience with data visualization tools</li>
+                            <li data-translate="job4_req4">Strong statistical and analytical background</li>
+                        </ul>
+                    </div>
+                    <button class="apply-btn" onclick="openApplicationModal('Data Scientist', 'Remote')" data-translate="apply_now">
+                        Apply Now
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Company Culture -->
+    <section class="culture-section">
+        <div class="careers-container">
+            <div class="careers-intro">
+                <h2 data-translate="culture_title">Our Culture & Values</h2>
+                <p data-translate="culture_subtitle">
+                    We believe that great AI solutions come from diverse, passionate teams working in an environment 
+                    that fosters innovation, collaboration, and continuous learning.
+                </p>
+            </div>
+            
+            <div class="culture-grid">
+                <div class="culture-item">
+                    <div class="culture-icon">🚀</div>
+                    <h3 class="culture-title" data-translate="culture1_title">Innovation First</h3>
+                    <p class="culture-description" data-translate="culture1_desc">
+                        We encourage creative thinking and bold ideas. Every team member has the opportunity 
+                        to propose and lead innovative projects.
+                    </p>
+                </div>
+                
+                <div class="culture-item">
+                    <div class="culture-icon">🌍</div>
+                    <h3 class="culture-title" data-translate="culture2_title">Global Mindset</h3>
+                    <p class="culture-description" data-translate="culture2_desc">
+                        Our multicultural team brings diverse perspectives from Dubai, Côte d'Ivoire, 
+                        and beyond, enriching our solutions and approach.
+                    </p>
+                </div>
+                
+                <div class="culture-item">
+                    <div class="culture-icon">🤝</div>
+                    <h3 class="culture-title" data-translate="culture3_title">Collaborative Spirit</h3>
+                    <p class="culture-description" data-translate="culture3_desc">
+                        We believe in the power of teamwork. Our open communication culture ensures 
+                        everyone's voice is heard and valued.
+                    </p>
+                </div>
+                
+                <div class="culture-item">
+                    <div class="culture-icon">📚</div>
+                    <h3 class="culture-title" data-translate="culture4_title">Continuous Learning</h3>
+                    <p class="culture-description" data-translate="culture4_desc">
+                        Stay at the forefront of AI technology with our learning budget, conference 
+                        attendance, and internal knowledge sharing sessions.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits -->
+    <section class="benefits-section">
+        <div class="careers-container">
+            <div class="careers-intro">
+                <h2 data-translate="benefits_title">Benefits & Perks</h2>
+                <p data-translate="benefits_subtitle">
+                    We offer competitive packages and benefits designed to support your career growth 
+                    and personal well-being.
+                </p>
+            </div>
+            
+            <div class="benefits-grid">
+                <div class="benefit-item">
+                    <div class="benefit-icon">💰</div>
+                    <div class="benefit-content">
+                        <h3 class="benefit-title" data-translate="benefit1_title">Competitive Salary</h3>
+                        <p class="benefit-description" data-translate="benefit1_desc">
+                            Market-leading compensation packages with performance bonuses and equity options.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="benefit-item">
+                    <div class="benefit-icon">🏥</div>
+                    <div class="benefit-content">
+                        <h3 class="benefit-title" data-translate="benefit2_title">Health & Wellness</h3>
+                        <p class="benefit-description" data-translate="benefit2_desc">
+                            Comprehensive health insurance, dental coverage, and wellness programs for you and your family.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="benefit-item">
+                    <div class="benefit-icon">🏖️</div>
+                    <div class="benefit-content">
+                        <h3 class="benefit-title" data-translate="benefit3_title">Flexible Time Off</h3>
+                        <p class="benefit-description" data-translate="benefit3_desc">
+                            Generous vacation policy, flexible working hours, and remote work options.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="benefit-item">
+                    <div class="benefit-icon">🎓</div>
+                    <div class="benefit-content">
+                        <h3 class="benefit-title" data-translate="benefit4_title">Learning Budget</h3>
+                        <p class="benefit-description" data-translate="benefit4_desc">
+                            Annual budget for courses, certifications, conferences, and professional development.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="benefit-item">
+                    <div class="benefit-icon">🌟</div>
+                    <div class="benefit-content">
+                        <h3 class="benefit-title" data-translate="benefit5_title">Career Growth</h3>
+                        <p class="benefit-description" data-translate="benefit5_desc">
+                            Clear advancement paths, mentorship programs, and leadership development opportunities.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="benefit-item">
+                    <div class="benefit-icon">🍕</div>
+                    <div class="benefit-content">
+                        <h3 class="benefit-title" data-translate="benefit6_title">Office Perks</h3>
+                        <p class="benefit-description" data-translate="benefit6_desc">
+                            Modern offices, free meals and snacks, game rooms, and team building activities.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Application Modal -->
+    <div id="applicationModal" class="application-modal">
+        <div class="application-modal-content">
+            <div class="application-modal-header">
+                <h3 id="applicationModalTitle" data-translate="application_modal_title">Apply for Position</h3>
+                <button class="modal-close" id="closeApplicationModal" aria-label="Close modal">&times;</button>
+            </div>
+            <form id="applicationForm" class="application-form">
+                <div class="form-group">
+                    <label for="applicantName" data-translate="form_name">Full Name</label>
+                    <input type="text" id="applicantName" name="name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="applicantEmail" data-translate="form_email">Email Address</label>
+                    <input type="email" id="applicantEmail" name="email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="applicantPhone" data-translate="form_phone">Phone Number</label>
+                    <input type="tel" id="applicantPhone" name="phone">
+                </div>
+                
+                <div class="form-group">
+                    <label for="applicantLinkedIn" data-translate="form_linkedin">LinkedIn Profile</label>
+                    <input type="url" id="applicantLinkedIn" name="linkedin" placeholder="https://linkedin.com/in/yourprofile">
+                </div>
+                
+                <div class="form-group">
+                    <label for="applicantResume" data-translate="form_resume">Resume/CV</label>
+                    <div class="file-upload">
+                        <input type="file" id="applicantResume" name="resume" accept=".pdf,.doc,.docx" onchange="updateFileName(this)">
+                        <label for="applicantResume" class="file-upload-label" data-translate="form_resume_label">
+                            📄 Click to upload your resume (PDF, DOC, DOCX)
+                        </label>
+                        <div id="selectedFile" class="selected-file"></div>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="coverLetter" data-translate="form_cover_letter">Cover Letter</label>
+                    <textarea id="coverLetter" name="coverLetter" rows="5" 
+                              placeholder="Tell us why you're interested in this position and what makes you a great fit..."
+                              data-translate-placeholder="form_cover_letter_placeholder"></textarea>
+                </div>
+                
+                <!-- Hidden fields for tracking -->
+                <input type="hidden" id="positionTitle" name="position">
+                <input type="hidden" id="positionLocation" name="location">
+                <input type="hidden" id="applicationRegion" name="region">
+                <input type="hidden" id="applicationLanguage" name="language">
+                
+                <button type="submit" class="submit-button" data-translate="submit_application">
+                    Submit Application
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3 class="footer-title">Axle IA</h3>
+                    <p class="footer-description" data-translate="footer_description">
+                        Transforming businesses through cutting-edge AI solutions across Dubai and Côte d'Ivoire.
+                    </p>
+                    <div class="social-links">
+                        <a href="https://instagram.com/axle.ia" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zM5.838 12a6.162 6.162 0 1112.324 0 6.162 6.162 0 01-12.324 0zM12 16a4 4 0 110-8 4 4 0 010 8zm4.965-10.405a1.44 1.44 0 112.881.001 1.44 1.44 0 01-2.881-.001z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="footer-section">
+                    <h4 class="footer-section-title" data-translate="footer_company">Company</h4>
+                    <ul class="footer-links">
+                        <li><a href="../index.html#services" data-translate="footer_services">Services</a></li>
+                        <li><a href="../index.html#process" data-translate="footer_process">Process</a></li>
+                        <li><a href="../index.html#mission" data-translate="footer_mission">Mission</a></li>
+                        <li><a href="blog.html" data-translate="footer_blog">Blog</a></li>
+                        <li><a href="careers.html" data-translate="footer_careers">Careers</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4 class="footer-section-title" data-translate="footer_contact">Contact</h4>
+                    <div class="contact-info">
+                        <div class="region-specific dubai-content">
+                            <div class="contact-location">
+                                <strong>Dubai Office</strong>
+                                <p>Business Bay, Dubai, UAE</p>
+                                <p>hello@axle-ia.com</p>
+                            </div>
+                        </div>
+                        <div class="region-specific ci-content" style="display: none;">
+                            <div class="contact-location">
+                                <strong>Côte d'Ivoire Office</strong>
+                                <p>Plateau, Abidjan, CI</p>
+                                <p>hello@axle-ia.com</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="footer-section">
+                    <h4 class="footer-section-title" data-translate="footer_newsletter">Stay Updated</h4>
+                    <p class="newsletter-description" data-translate="newsletter_description">
+                        Get the latest insights on AI and business transformation.
+                    </p>
+                    <button class="cta-button primary newsletter-btn" id="newsletterBtn" data-translate="newsletter_button">
+                        Subscribe
+                    </button>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div class="footer-bottom-content">
+                    <p class="copyright" data-translate="footer_copyright">
+                        © 2024 Axle IA. All rights reserved.
+                    </p>
+                    <div class="footer-bottom-links">
+                        <a href="#" data-translate="privacy_policy">Privacy Policy</a>
+                        <a href="#" data-translate="terms_service">Terms of Service</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="../js/main.js"></script>
+    <script src="../js/translations.js"></script>
+    <script src="../js/clickup-integration.js"></script>
+    <script>
+        // Careers-specific translations
+        const careersTranslations = {
+            en: {
+                careers_title: "Join the Future of AI",
+                careers_subtitle: "Build cutting-edge AI solutions and shape the future of business technology across Dubai and Côte d'Ivoire",
+                careers_intro_title: "Why Choose Axle IA?",
+                careers_intro_text: "At Axle IA, we're not just building AI solutions – we're creating the future. Join our diverse team of innovators, engineers, and visionaries who are passionate about transforming businesses through artificial intelligence. We offer exciting opportunities across two dynamic regions: Dubai and Côte d'Ivoire.",
+                
+                // Job positions
+                job1_title: "Senior AI Engineer",
+                job1_location: "Dubai, UAE",
+                job1_description: "Lead the development of advanced AI systems and machine learning models. Work with cutting-edge technologies to solve complex business problems for our Dubai-based clients.",
+                job1_req1: "5+ years experience in AI/ML development",
+                job1_req2: "Expertise in Python, TensorFlow, PyTorch",
+                job1_req3: "Experience with cloud platforms (AWS, Azure)",
+                job1_req4: "Strong problem-solving and analytical skills",
+                
+                job2_title: "Full-Stack Developer",
+                job2_location: "Abidjan, CI",
+                job2_description: "Develop scalable web applications and integrate AI functionalities. Join our growing team in Côte d'Ivoire and help build the next generation of AI-powered business solutions.",
+                job2_req1: "3+ years experience in web development",
+                job2_req2: "Proficiency in React, Node.js, databases",
+                job2_req3: "Experience with API development and integration",
+                job2_req4: "French and English proficiency",
+                
+                job3_title: "AI Business Consultant",
+                job3_location: "Dubai, UAE",
+                job3_description: "Bridge the gap between AI technology and business strategy. Help clients understand and implement AI solutions that drive real business value and competitive advantage.",
+                job3_req1: "5+ years in business consulting or strategy",
+                job3_req2: "Strong understanding of AI technologies",
+                job3_req3: "Excellent presentation and communication skills",
+                job3_req4: "Experience in Middle East market preferred",
+                
+                job4_title: "Data Scientist",
+                job4_location: "Remote",
+                job4_description: "Extract insights from complex datasets and build predictive models. Work remotely while collaborating with teams across Dubai and Côte d'Ivoire on exciting AI projects.",
+                job4_req1: "3+ years experience in data science",
+                job4_req2: "Expertise in Python, R, SQL",
+                job4_req3: "Experience with data visualization tools",
+                job4_req4: "Strong statistical and analytical background",
+                
+                job_full_time: "Full-time",
+                job_senior: "Senior",
+                job_mid: "Mid-level",
+                job_requirements: "Requirements:",
+                apply_now: "Apply Now",
+                
+                // Culture
+                culture_title: "Our Culture & Values",
+                culture_subtitle: "We believe that great AI solutions come from diverse, passionate teams working in an environment that fosters innovation, collaboration, and continuous learning.",
+                culture1_title: "Innovation First",
+                culture1_desc: "We encourage creative thinking and bold ideas. Every team member has the opportunity to propose and lead innovative projects.",
+                culture2_title: "Global Mindset",
+                culture2_desc: "Our multicultural team brings diverse perspectives from Dubai, Côte d'Ivoire, and beyond, enriching our solutions and approach.",
+                culture3_title: "Collaborative Spirit",
+                culture3_desc: "We believe in the power of teamwork. Our open communication culture ensures everyone's voice is heard and valued.",
+                culture4_title: "Continuous Learning",
+                culture4_desc: "Stay at the forefront of AI technology with our learning budget, conference attendance, and internal knowledge sharing sessions.",
+                
+                // Benefits
+                benefits_title: "Benefits & Perks",
+                benefits_subtitle: "We offer competitive packages and benefits designed to support your career growth and personal well-being.",
+                benefit1_title: "Competitive Salary",
+                benefit1_desc: "Market-leading compensation packages with performance bonuses and equity options.",
+                benefit2_title: "Health & Wellness",
+                benefit2_desc: "Comprehensive health insurance, dental coverage, and wellness programs for you and your family.",
+                benefit3_title: "Flexible Time Off",
+                benefit3_desc: "Generous vacation policy, flexible working hours, and remote work options.",
+                benefit4_title: "Learning Budget",
+                benefit4_desc: "Annual budget for courses, certifications, conferences, and professional development.",
+                benefit5_title: "Career Growth",
+                benefit5_desc: "Clear advancement paths, mentorship programs, and leadership development opportunities.",
+                benefit6_title: "Office Perks",
+                benefit6_desc: "Modern offices, free meals and snacks, game rooms, and team building activities.",
+                
+                // Application form
+                application_modal_title: "Apply for Position",
+                form_linkedin: "LinkedIn Profile",
+                form_resume: "Resume/CV",
+                form_resume_label: "📄 Click to upload your resume (PDF, DOC, DOCX)",
+                form_cover_letter: "Cover Letter",
+                form_cover_letter_placeholder: "Tell us why you're interested in this position and what makes you a great fit...",
+                submit_application: "Submit Application"
+            },
+            fr: {
+                careers_title: "Rejoignez l'Avenir de l'IA",
+                careers_subtitle: "Créez des solutions IA de pointe et façonnez l'avenir de la technologie business à Dubaï et en Côte d'Ivoire",
+                careers_intro_title: "Pourquoi Choisir Axle IA ?",
+                careers_intro_text: "Chez Axle IA, nous ne construisons pas seulement des solutions IA – nous créons l'avenir. Rejoignez notre équipe diverse d'innovateurs, d'ingénieurs et de visionnaires passionnés par la transformation des entreprises grâce à l'intelligence artificielle. Nous offrons des opportunités passionnantes dans deux régions dynamiques : Dubaï et la Côte d'Ivoire.",
+                
+                // Job positions
+                job1_title: "Ingénieur IA Senior",
+                job1_location: "Dubaï, EAU",
+                job1_description: "Dirigez le développement de systèmes IA avancés et de modèles d'apprentissage automatique. Travaillez avec des technologies de pointe pour résoudre des problèmes business complexes pour nos clients basés à Dubaï.",
+                job1_req1: "5+ années d'expérience en développement IA/ML",
+                job1_req2: "Expertise en Python, TensorFlow, PyTorch",
+                job1_req3: "Expérience avec les plateformes cloud (AWS, Azure)",
+                job1_req4: "Solides compétences en résolution de problèmes et analyse",
+                
+                job2_title: "Développeur Full-Stack",
+                job2_location: "Abidjan, CI",
+                job2_description: "Développez des applications web évolutives et intégrez des fonctionnalités IA. Rejoignez notre équipe en croissance en Côte d'Ivoire et aidez à construire la prochaine génération de solutions business alimentées par l'IA.",
+                job2_req1: "3+ années d'expérience en développement web",
+                job2_req2: "Maîtrise de React, Node.js, bases de données",
+                job2_req3: "Expérience en développement et intégration d'API",
+                job2_req4: "Maîtrise du français et de l'anglais",
+                
+                job3_title: "Consultant Business IA",
+                job3_location: "Dubaï, EAU",
+                job3_description: "Faites le lien entre la technologie IA et la stratégie business. Aidez les clients à comprendre et implémenter des solutions IA qui génèrent une vraie valeur business et un avantage concurrentiel.",
+                job3_req1: "5+ années en conseil business ou stratégie",
+                job3_req2: "Solide compréhension des technologies IA",
+                job3_req3: "Excellentes compétences en présentation et communication",
+                job3_req4: "Expérience du marché du Moyen-Orient préférée",
+                
+                job4_title: "Data Scientist",
+                job4_location: "Télétravail",
+                job4_description: "Extrayez des insights de datasets complexes et construisez des modèles prédictifs. Travaillez en télétravail tout en collaborant avec les équipes de Dubaï et Côte d'Ivoire sur des projets IA passionnants.",
+                job4_req1: "3+ années d'expérience en data science",
+                job4_req2: "Expertise en Python, R, SQL",
+                job4_req3: "Expérience avec les outils de visualisation de données",
+                job4_req4: "Solide background statistique et analytique",
+                
+                job_full_time: "Temps plein",
+                job_senior: "Senior",
+                job_mid: "Niveau intermédiaire",
+                job_requirements: "Exigences :",
+                apply_now: "Postuler Maintenant",
+                
+                // Culture
+                culture_title: "Notre Culture & Valeurs",
+                culture_subtitle: "Nous croyons que les grandes solutions IA viennent d'équipes diverses et passionnées travaillant dans un environnement qui favorise l'innovation, la collaboration et l'apprentissage continu.",
+                culture1_title: "Innovation d'Abord",
+                culture1_desc: "Nous encourageons la pensée créative et les idées audacieuses. Chaque membre de l'équipe a l'opportunité de proposer et diriger des projets innovants.",
+                culture2_title: "Mentalité Globale",
+                culture2_desc: "Notre équipe multiculturelle apporte des perspectives diverses de Dubaï, Côte d'Ivoire et au-delà, enrichissant nos solutions et approches.",
+                culture3_title: "Esprit Collaboratif",
+                culture3_desc: "Nous croyons au pouvoir du travail d'équipe. Notre culture de communication ouverte assure que la voix de chacun est entendue et valorisée.",
+                culture4_title: "Apprentissage Continu",
+                culture4_desc: "Restez à la pointe de la technologie IA avec notre budget formation, participation aux conférences et sessions de partage de connaissances internes.",
+                
+                // Benefits
+                benefits_title: "Avantages & Bénéfices",
+                benefits_subtitle: "Nous offrons des packages compétitifs et des avantages conçus pour soutenir votre croissance professionnelle et votre bien-être personnel.",
+                benefit1_title: "Salaire Compétitif",
+                benefit1_desc: "Packages de compensation leader du marché avec bonus de performance et options d'équité.",
+                benefit2_title: "Santé & Bien-être",
+                benefit2_desc: "Assurance santé complète, couverture dentaire et programmes de bien-être pour vous et votre famille.",
+                benefit3_title: "Congés Flexibles",
+                benefit3_desc: "Politique de vacances généreuse, horaires flexibles et options de télétravail.",
+                benefit4_title: "Budget Formation",
+                benefit4_desc: "Budget annuel pour cours, certifications, conférences et développement professionnel.",
+                benefit5_title: "Évolution de Carrière",
+                benefit5_desc: "Parcours d'avancement clairs, programmes de mentorat et opportunités de développement leadership.",
+                benefit6_title: "Avantages Bureau",
+                benefit6_desc: "Bureaux modernes, repas et collations gratuits, salles de jeux et activités de team building.",
+                
+                // Application form
+                application_modal_title: "Postuler pour le Poste",
+                form_linkedin: "Profil LinkedIn",
+                form_resume: "CV",
+                form_resume_label: "📄 Cliquez pour télécharger votre CV (PDF, DOC, DOCX)",
+                form_cover_letter: "Lettre de Motivation",
+                form_cover_letter_placeholder: "Dites-nous pourquoi ce poste vous intéresse et ce qui fait de vous un candidat idéal...",
+                submit_application: "Soumettre Candidature"
+            }
+        };
+
+        // Extend existing translations
+        Object.keys(careersTranslations).forEach(lang => {
+            Object.assign(translations[lang], careersTranslations[lang]);
+        });
+
+        // Application modal functionality
+        function openApplicationModal(position, location) {
+            const modal = document.getElementById('applicationModal');
+            const modalTitle = document.getElementById('applicationModalTitle');
+            const positionField = document.getElementById('positionTitle');
+            const locationField = document.getElementById('positionLocation');
+            const regionField = document.getElementById('applicationRegion');
+            const languageField = document.getElementById('applicationLanguage');
+            
+            const currentLang = localStorage.getItem('selectedLanguage') || 'en';
+            const currentRegion = localStorage.getItem('selectedRegion') || 'dubai';
+            
+            modalTitle.textContent = `${currentLang === 'en' ? 'Apply for' : 'Postuler pour'} ${position}`;
+            positionField.value = position;
+            locationField.value = location;
+            regionField.value = currentRegion;
+            languageField.value = currentLang;
+            
+            modal.style.display = 'block';
+            document.body.style.overflow = 'hidden';
+            
+            // Focus on first input
+            setTimeout(() => {
+                const firstInput = modal.querySelector('input');
+                if (firstInput) firstInput.focus();
+            }, 100);
+        }
+
+        function closeApplicationModal() {
+            const modal = document.getElementById('applicationModal');
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        function updateFileName(input) {
+            const fileDisplay = document.getElementById('selectedFile');
+            if (input.files.length > 0) {
+                fileDisplay.textContent = `✅ ${input.files[0].name}`;
+            } else {
+                fileDisplay.textContent = '';
+            }
+        }
+
+        // Event listeners
+        document.addEventListener('DOMContentLoaded', function() {
+            const closeBtn = document.getElementById('closeApplicationModal');
+            const modal = document.getElementById('applicationModal');
+            const applicationForm = document.getElementById('applicationForm');
+            
+            if (closeBtn) {
+                closeBtn.addEventListener('click', closeApplicationModal);
+            }
+            
+            if (modal) {
+                modal.addEventListener('click', function(e) {
+                    if (e.target === modal) {
+                        closeApplicationModal();
+                    }
+                });
+            }
+            
+            // Handle form submission
+            if (applicationForm) {
+                applicationForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    const formData = {
+                        name: document.getElementById('applicantName').value,
+                        email: document.getElementById('applicantEmail').value,
+                        phone: document.getElementById('applicantPhone').value || '',
+                        linkedin: document.getElementById('applicantLinkedIn').value || '',
+                        coverLetter: document.getElementById('coverLetter').value,
+                        position: document.getElementById('positionTitle').value,
+                        location: document.getElementById('positionLocation').value,
+                        region: document.getElementById('applicationRegion').value,
+                        language: document.getElementById('applicationLanguage').value,
+                        resume: 'CV uploaded via website' // File handling would need backend
+                    };
+                    
+                    // Submit to ClickUp (function defined in clickup-integration.js)
+                    if (window.submitToClickUp) {
+                        window.submitToClickUp(formData);
+                    } else {
+                        console.error('ClickUp integration not loaded');
+                        alert('Error: Application submission not configured. Please contact hello@axle-ia.com directly.');
+                    }
+                });
+            }
+            
+            // Close modal with Escape key
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && modal && modal.style.display === 'block') {
+                    closeApplicationModal();
+                }
+            });
+        });
+    </script>
+</body>
+</html>

@@ -143,12 +143,13 @@ ${getRecommendedActions(formData)}
             `;
         }
         
-        // Préparation des données pour ClickUp
+        // Préparation des données pour ClickUp avec Custom Fields
         const taskData = {
             name: taskName,
             description: description,
             tags: taskTags,
-            priority: formData.position ? 2 : 3 // Priorité élevée pour candidatures
+            priority: formData.position ? 2 : 3, // Priorité élevée pour candidatures
+            custom_fields: buildCustomFields(formData)
         };
         
         console.log('📤 Envoi vers ClickUp:', { 
@@ -448,4 +449,244 @@ function getLeadQualityText(score) {
     if (score >= 60) return '⚡ QUALIFIÉ';
     if (score >= 40) return '📧 TIÈDE';
     return '❄️ FROID';
+}
+
+function buildCustomFields(formData) {
+    const customFields = [];
+    
+    // Mapping des IDs des champs selon la région et le type
+    const FIELD_IDS = {
+        // CONTACTS DUBAI
+        contacts_dubai: {
+            entreprise: '2349c56e-faf9-4e0e-8450-786139836863',
+            poste: '7ce96a11-30f0-484e-9e4d-b907af9d662b', 
+            telephone: 'ce9f97b1-192f-4934-a70b-5a37f6be5ca6',
+            leadScore: 'eabb6963-1aef-4598-915d-2783d9050914',
+            budget: '0ac24987-5d37-4d60-b89e-d6681b0d3708',
+            tailleEntreprise: '7e41660a-c578-4aeb-b124-c3a76fb9945f',
+            urgence: '6925935a-9aa6-4c85-a314-491fba5d7c03',
+            objectif: '215316ba-613b-43e5-91fe-8fa5e2c488ba',
+            decideur: 'a2dd4a35-fcdc-4193-9043-13c035f3bb6b',
+            sourceTrafic: '4a83844e-aa44-411c-8f83-a3ea68c297dd',
+            tempsSite: '324bf52c-7252-45b6-b42b-1e51821c484c',
+            pagesVisitees: '8db218c7-eeb8-424d-b84a-4b1e311f9973',
+            statutLead: '2b61fc03-942f-4094-b9cc-cb002bae8076',
+            region: '6d678019-c949-470a-88f2-e359166dd40c',
+            langue: 'a0bd820f-3a57-46dc-989c-0e1ef4a202d9',
+            dateSoumission: '0ca2328f-002e-4b02-a7af-3dc31467db0e'
+        },
+        
+        // CONTACTS CI  
+        contacts_ci: {
+            entreprise: '2349c56e-faf9-4e0e-8450-786139836863',
+            poste: '7ce96a11-30f0-484e-9e4d-b907af9d662b',
+            telephone: 'ce9f97b1-192f-4934-a70b-5a37f6be5ca6',
+            leadScore: 'eabb6963-1aef-4598-915d-2783d9050914',
+            budget: '67adff91-7228-414d-b418-efc00749ddf1',
+            tailleEntreprise: '82496fdc-e09c-4e96-a706-4114a08c5cc9',
+            urgence: '1e7cfa10-7cf0-4382-be24-462d87376dca',
+            objectif: 'b94273a3-a886-46e3-9941-1e3148f9cb75',
+            decideur: 'c3400238-2d3c-4ee4-904f-b6f4365157c2',
+            sourceTrafic: '4a83844e-aa44-411c-8f83-a3ea68c297dd',
+            tempsSite: '324bf52c-7252-45b6-b42b-1e51821c484c',
+            pagesVisitees: '8db218c7-eeb8-424d-b84a-4b1e311f9973',
+            statutLead: 'a96b096b-dabe-4bd6-b922-5a709e103d53',
+            region: '63b87e47-56b3-464d-8aa3-dd160840fab0',
+            langue: '378f671e-837f-4256-bc51-15725ca8af09',
+            dateSoumission: '0ca2328f-002e-4b02-a7af-3dc31467db0e'
+        },
+        
+        // CANDIDATURES DUBAI
+        candidats_dubai: {
+            telephone: 'ce9f97b1-192f-4934-a70b-5a37f6be5ca6',
+            linkedin: '8e4de8fc-add8-413e-9ab6-cbf8a4726437',
+            posteCandidature: 'ace65f7e-5db5-47c2-b782-3c202a414eb9',
+            region: '46bd9663-ba9d-4e70-8a85-0e70de406134',
+            statutCandidature: 'ec42640f-a5bc-4baf-86b9-308afd491649',
+            dateCandidature: '59af10ef-abc4-4803-951f-45ce8665965a'
+        },
+        
+        // CANDIDATURES CI
+        candidats_ci: {
+            telephone: 'ce9f97b1-192f-4934-a70b-5a37f6be5ca6',
+            linkedin: '8e4de8fc-add8-413e-9ab6-cbf8a4726437',
+            posteCandidature: 'ace65f7e-5db5-47c2-b782-3c202a414eb9',
+            region: '7b33eda7-5495-44f7-b632-d937363d806f',
+            statutCandidature: 'c59e0508-7369-45dc-85aa-facd38d7bea7',
+            dateCandidature: '59af10ef-abc4-4803-951f-45ce8665965a'
+        }
+    };
+    
+    // Pour les leads (formulaire Get Started)
+    if (!formData.position) {
+        const fieldMap = formData.region === 'dubai' ? FIELD_IDS.contacts_dubai : FIELD_IDS.contacts_ci;
+        
+        // Entreprise
+        if (formData.company) {
+            customFields.push({
+                id: fieldMap.entreprise,
+                value: formData.company
+            });
+        }
+        
+        // Poste  
+        if (formData.jobTitle) {
+            customFields.push({
+                id: fieldMap.poste,
+                value: formData.jobTitle
+            });
+        }
+        
+        // Téléphone
+        if (formData.phone) {
+            customFields.push({
+                id: fieldMap.telephone,
+                value: formData.phone
+            });
+        }
+        
+        // Lead Score
+        if (formData.leadScore !== undefined) {
+            customFields.push({
+                id: fieldMap.leadScore,
+                value: formData.leadScore
+            });
+        }
+        
+        // Budget
+        if (formData.budget) {
+            customFields.push({
+                id: fieldMap.budget,
+                value: getBudgetText(formData.budget)
+            });
+        }
+        
+        // Taille entreprise
+        if (formData.companySize) {
+            customFields.push({
+                id: fieldMap.tailleEntreprise,
+                value: getCompanySizeText(formData.companySize)
+            });
+        }
+        
+        // Urgence
+        if (formData.timeline) {
+            customFields.push({
+                id: fieldMap.urgence,
+                value: getTimelineText(formData.timeline)
+            });
+        }
+        
+        // Objectif principal
+        if (formData.objective) {
+            customFields.push({
+                id: fieldMap.objectif,
+                value: getObjectiveText(formData.objective)
+            });
+        }
+        
+        // Décideur final
+        if (formData.decisionMaker) {
+            customFields.push({
+                id: fieldMap.decideur,
+                value: getDecisionMakerText(formData.decisionMaker)
+            });
+        }
+        
+        // Source de trafic
+        if (formData.referrer) {
+            customFields.push({
+                id: fieldMap.sourceTrafic,
+                value: formData.referrer
+            });
+        }
+        
+        // Temps sur le site (en minutes)
+        if (formData.timeOnSite) {
+            customFields.push({
+                id: fieldMap.tempsSite,
+                value: Math.round(formData.timeOnSite / 60)
+            });
+        }
+        
+        // Pages visitées
+        if (formData.pagesVisited) {
+            customFields.push({
+                id: fieldMap.pagesVisitees,
+                value: parseInt(formData.pagesVisited)
+            });
+        }
+        
+        // Statut du lead basé sur le score
+        const leadQuality = getLeadQualityText(formData.leadScore || 0);
+        customFields.push({
+            id: fieldMap.statutLead,
+            value: leadQuality
+        });
+        
+        // Région
+        customFields.push({
+            id: fieldMap.region,
+            value: formData.region === 'dubai' ? 'Dubai' : 'Côte d\'Ivoire'
+        });
+        
+        // Langue
+        customFields.push({
+            id: fieldMap.langue,
+            value: formData.language === 'en' ? 'Anglais' : 'Français'
+        });
+        
+        // Date de soumission
+        customFields.push({
+            id: fieldMap.dateSoumission,
+            value: new Date().toISOString().split('T')[0]
+        });
+        
+    } else {
+        // Pour les candidatures
+        const fieldMap = formData.region === 'dubai' ? FIELD_IDS.candidats_dubai : FIELD_IDS.candidats_ci;
+        
+        // Téléphone
+        if (formData.phone) {
+            customFields.push({
+                id: fieldMap.telephone,
+                value: formData.phone
+            });
+        }
+        
+        // LinkedIn
+        if (formData.linkedin) {
+            customFields.push({
+                id: fieldMap.linkedin,
+                value: formData.linkedin
+            });
+        }
+        
+        // Poste candidature
+        customFields.push({
+            id: fieldMap.posteCandidature,
+            value: formData.position
+        });
+        
+        // Région candidature
+        customFields.push({
+            id: fieldMap.region,
+            value: formData.region === 'dubai' ? 'Dubai' : 'Côte d\'Ivoire'
+        });
+        
+        // Statut candidature
+        customFields.push({
+            id: fieldMap.statutCandidature,
+            value: 'Nouveau CV'
+        });
+        
+        // Date candidature
+        customFields.push({
+            id: fieldMap.dateCandidature,
+            value: new Date().toISOString().split('T')[0]
+        });
+    }
+    
+    console.log('📋 Custom Fields avec IDs:', customFields.length, 'champs configurés');
+    return customFields;
 }

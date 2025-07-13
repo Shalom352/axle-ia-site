@@ -128,7 +128,12 @@ const translations = {
         form_call_flexible: "Flexible",
         
         form_message_placeholder: "E.g.: We want to automate our customer service and reduce response times...",
-        form_privacy: "🔒 Your data is secure and will never be shared with third parties."
+        form_privacy: "🔒 Your data is secure and will never be shared with third parties.",
+        
+        // Footer stats
+        footer_stat_projects: "Projects",
+        footer_stat_regions: "Regions", 
+        footer_stat_satisfaction: "Satisfaction"
     },
     
     fr: {
@@ -259,7 +264,12 @@ const translations = {
         form_call_flexible: "Flexible",
         
         form_message_placeholder: "Ex: Nous souhaitons automatiser notre service client et réduire les temps de réponse...",
-        form_privacy: "🔒 Vos données sont sécurisées et ne seront jamais partagées avec des tiers."
+        form_privacy: "🔒 Vos données sont sécurisées et ne seront jamais partagées avec des tiers.",
+        
+        // Footer stats
+        footer_stat_projects: "Projets",
+        footer_stat_regions: "Régions",
+        footer_stat_satisfaction: "Satisfaction"
     }
 };
 

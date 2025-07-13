@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Axle IA Blog - Latest insights on AI, business automation, and digital transformation in Dubai and Côte d'Ivoire.">
+    <meta name="keywords" content="AI Blog, Artificial Intelligence, Business Automation, Digital Transformation, Dubai, Côte d'Ivoire">
+    <meta name="author" content="Axle IA">
+    <title>Blog - Axle IA</title>
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="../assets/favicon.ico">
+    
+    <style>
+        /* Blog-specific styles */
+        .blog-hero {
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            padding: 140px 0 80px;
+            text-align: center;
+        }
+        
+        .blog-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+        
+        .blog-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 4rem;
+            margin-top: 4rem;
+        }
+        
+        .blog-main {
+            max-width: 800px;
+        }
+        
+        .blog-sidebar {
+            max-width: 300px;
+        }
+        
+        .blog-post {
+            background: var(--bg-white);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            margin-bottom: 2rem;
+            transition: var(--transition);
+            border: 1px solid var(--border-light);
+        }
+        
+        .blog-post:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .blog-post-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .blog-post-image::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 60px;
+            height: 60px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .blog-post-content {
+            padding: 2rem;
+        }
+        
+        .blog-post-meta {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+        
+        .blog-post-category {
+            background: var(--primary-color);
+            color: var(--bg-white);
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: var(--font-weight-medium);
+        }
+        
+        .blog-post-title {
+            font-size: 1.5rem;
+            font-weight: var(--font-weight-bold);
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+            line-height: 1.3;
+        }
+        
+        .blog-post-excerpt {
+            color: var(--text-light);
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+        
+        .blog-post-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border-light);
+        }
+        
+        .read-more {
+            color: var(--primary-color);
+            font-weight: var(--font-weight-semibold);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .read-more:hover {
+            color: var(--secondary-color);
+        }
+        
+        .blog-author {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+        
+        .author-avatar {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: var(--font-weight-bold);
+            font-size: 0.8rem;
+        }
+        
+        .sidebar-widget {
+            background: var(--bg-white);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border-light);
+        }
+        
+        .widget-title {
+            font-size: 1.25rem;
+            font-weight: var(--font-weight-bold);
+            margin-bottom: 1.5rem;
+            color: var(--text-dark);
+        }
+        
+        .category-list {
+            list-style: none;
+        }
+        
+        .category-list li {
+            margin-bottom: 0.75rem;
+        }
+        
+        .category-list a {
+            color: var(--text-medium);
+            text-decoration: none;
+            transition: var(--transition);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .category-list a:hover {
+            color: var(--primary-color);
+        }
+        
+        .category-count {
+            background: var(--bg-light);
+            color: var(--text-light);
+            padding: 0.25rem 0.5rem;
+            border-radius: 12px;
+            font-size: 0.8rem;
+        }
+        
+        .recent-posts {
+            list-style: none;
+        }
+        
+        .recent-posts li {
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid var(--border-light);
+        }
+        
+        .recent-posts li:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+        
+        .recent-post-title {
+            font-size: 0.9rem;
+            font-weight: var(--font-weight-semibold);
+            margin-bottom: 0.5rem;
+            color: var(--text-dark);
+            text-decoration: none;
+            line-height: 1.4;
+        }
+        
+        .recent-post-title:hover {
+            color: var(--primary-color);
+        }
+        
+        .recent-post-date {
+            font-size: 0.8rem;
+            color: var(--text-light);
+        }
+        
+        .newsletter-signup {
+            text-align: center;
+        }
+        
+        .newsletter-input {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            font-family: inherit;
+        }
+        
+        .newsletter-input:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(0, 102, 255, 0.1);
+        }
+        
+        .newsletter-btn {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            background: var(--primary-color);
+            color: var(--bg-white);
+            border: none;
+            border-radius: 8px;
+            font-weight: var(--font-weight-semibold);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .newsletter-btn:hover {
+            background: var(--secondary-color);
+        }
+        
+        .pagination {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;
+            margin-top: 3rem;
+            padding: 2rem 0;
+        }
+        
+        .pagination-item {
+            padding: 0.75rem 1rem;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            color: var(--text-medium);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .pagination-item:hover {
+            background: var(--primary-color);
+            color: var(--bg-white);
+            border-color: var(--primary-color);
+        }
+        
+        .pagination-item.active {
+            background: var(--primary-color);
+            color: var(--bg-white);
+            border-color: var(--primary-color);
+        }
+        
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .blog-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .blog-sidebar {
+                max-width: 100%;
+                order: -1;
+            }
+            
+            .blog-post-content {
+                padding: 1.5rem;
+            }
+            
+            .sidebar-widget {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="container">
+                <div class="nav-brand">
+                    <a href="../index.html">
+                        <h1 class="logo">Axle IA</h1>
+                    </a>
+                </div>
+                
+                <div class="nav-menu" id="navMenu">
+                    <a href="../index.html#services" class="nav-link" data-translate="nav_services">Our Services</a>
+                    <a href="../index.html#process" class="nav-link" data-translate="nav_process">Our Process</a>
+                    <a href="../index.html#mission" class="nav-link" data-translate="nav_mission">Our Mission</a>
+                    <a href="blog.html" class="nav-link" data-translate="nav_blog">Blog</a>
+                    <a href="careers.html" class="nav-link" data-translate="nav_careers">Careers</a>
+                    
+                    <div class="nav-controls">
+                        <select id="regionSelector" class="region-selector" aria-label="Select region">
+                            <option value="dubai">🇦🇪 Dubai</option>
+                            <option value="ci">🇨🇮 Côte d'Ivoire</option>
+                        </select>
+                        <button id="langToggle" class="lang-toggle" aria-label="Toggle language">EN</button>
+                    </div>
+                </div>
+                
+                <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Blog Hero -->
+    <section class="blog-hero">
+        <div class="blog-container">
+            <h1 class="hero-title" data-translate="blog_title">AI Insights & Innovation</h1>
+            <p class="hero-subtitle" data-translate="blog_subtitle">
+                Discover the latest trends in AI, automation, and digital transformation
+            </p>
+        </div>
+    </section>
+
+    <!-- Blog Content -->
+    <section class="blog-section">
+        <div class="blog-container">
+            <div class="blog-grid">
+                <!-- Main Blog Content -->
+                <div class="blog-main">
+                    <!-- Blog Post 1 -->
+                    <article class="blog-post">
+                        <div class="blog-post-image"></div>
+                        <div class="blog-post-content">
+                            <div class="blog-post-meta">
+                                <span class="blog-post-category" data-translate="category_ai_trends">AI Trends</span>
+                                <span class="blog-post-date">December 15, 2024</span>
+                            </div>
+                            <h2 class="blog-post-title" data-translate="post1_title">
+                                The Future of AI in Business: Trends to Watch in 2025
+                            </h2>
+                            <p class="blog-post-excerpt" data-translate="post1_excerpt">
+                                Explore the emerging AI technologies that will reshape business operations in 2025. From advanced automation to predictive analytics, discover how companies in Dubai and Côte d'Ivoire can stay ahead of the curve.
+                            </p>
+                            <div class="blog-post-footer">
+                                <a href="#" class="read-more" data-translate="read_more">Read More →</a>
+                                <div class="blog-author">
+                                    <div class="author-avatar">AI</div>
+                                    <span data-translate="author_ai_team">Axle IA Team</span>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Blog Post 2 -->
+                    <article class="blog-post">
+                        <div class="blog-post-image"></div>
+                        <div class="blog-post-content">
+                            <div class="blog-post-meta">
+                                <span class="blog-post-category" data-translate="category_automation">Automation</span>
+                                <span class="blog-post-date">December 10, 2024</span>
+                            </div>
+                            <h2 class="blog-post-title" data-translate="post2_title">
+                                Smart Process Automation: Case Study from Dubai
+                            </h2>
+                            <p class="blog-post-excerpt" data-translate="post2_excerpt">
+                                Learn how a leading Dubai-based company reduced operational costs by 40% using our smart process automation solutions. A detailed case study with real-world implementation insights.
+                            </p>
+                            <div class="blog-post-footer">
+                                <a href="#" class="read-more" data-translate="read_more">Read More →</a>
+                                <div class="blog-author">
+                                    <div class="author-avatar">SM</div>
+                                    <span data-translate="author_sarah">Sarah Martinez</span>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Blog Post 3 -->
+                    <article class="blog-post">
+                        <div class="blog-post-image"></div>
+                        <div class="blog-post-content">
+                            <div class="blog-post-meta">
+                                <span class="blog-post-category" data-translate="category_chatbots">Chatbots</span>
+                                <span class="blog-post-date">December 5, 2024</span>
+                            </div>
+                            <h2 class="blog-post-title" data-translate="post3_title">
+                                Building Multilingual Chatbots for African Markets
+                            </h2>
+                            <p class="blog-post-excerpt" data-translate="post3_excerpt">
+                                Discover how to create culturally-aware chatbots that speak French, English, and local languages. Essential insights for businesses expanding in Côte d'Ivoire and West Africa.
+                            </p>
+                            <div class="blog-post-footer">
+                                <a href="#" class="read-more" data-translate="read_more">Read More →</a>
+                                <div class="blog-author">
+                                    <div class="author-avatar">KD</div>
+                                    <span data-translate="author_kofi">Kofi Diallo</span>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Blog Post 4 -->
+                    <article class="blog-post">
+                        <div class="blog-post-image"></div>
+                        <div class="blog-post-content">
+                            <div class="blog-post-meta">
+                                <span class="blog-post-category" data-translate="category_digital_transformation">Digital Transformation</span>
+                                <span class="blog-post-date">November 28, 2024</span>
+                            </div>
+                            <h2 class="blog-post-title" data-translate="post4_title">
+                                AI-Driven Digital Marketing: ROI Strategies for SMEs
+                            </h2>
+                            <p class="blog-post-excerpt" data-translate="post4_excerpt">
+                                Small and medium enterprises can leverage AI for marketing success. Learn proven strategies that deliver measurable ROI without breaking the budget.
+                            </p>
+                            <div class="blog-post-footer">
+                                <a href="#" class="read-more" data-translate="read_more">Read More →</a>
+                                <div class="blog-author">
+                                    <div class="author-avatar">LR</div>
+                                    <span data-translate="author_lucia">Lucia Rodriguez</span>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Pagination -->
+                    <div class="pagination">
+                        <a href="#" class="pagination-item" data-translate="pagination_prev">← Previous</a>
+                        <a href="#" class="pagination-item active">1</a>
+                        <a href="#" class="pagination-item">2</a>
+                        <a href="#" class="pagination-item">3</a>
+                        <a href="#" class="pagination-item" data-translate="pagination_next">Next →</a>
+                    </div>
+                </div>
+
+                <!-- Sidebar -->
+                <aside class="blog-sidebar">
+                    <!-- Categories Widget -->
+                    <div class="sidebar-widget">
+                        <h3 class="widget-title" data-translate="widget_categories">Categories</h3>
+                        <ul class="category-list">
+                            <li>
+                                <a href="#" data-translate="category_ai_trends">
+                                    AI Trends
+                                    <span class="category-count">8</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" data-translate="category_automation">
+                                    Automation
+                                    <span class="category-count">12</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" data-translate="category_chatbots">
+                                    Chatbots
+                                    <span class="category-count">6</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" data-translate="category_digital_transformation">
+                                    Digital Transformation
+                                    <span class="category-count">9</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" data-translate="category_case_studies">
+                                    Case Studies
+                                    <span class="category-count">15</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Recent Posts Widget -->
+                    <div class="sidebar-widget">
+                        <h3 class="widget-title" data-translate="widget_recent_posts">Recent Posts</h3>
+                        <ul class="recent-posts">
+                            <li>
+                                <a href="#" class="recent-post-title" data-translate="recent_post1">
+                                    How AI is Transforming Customer Service in Dubai
+                                </a>
+                                <div class="recent-post-date">December 12, 2024</div>
+                            </li>
+                            <li>
+                                <a href="#" class="recent-post-title" data-translate="recent_post2">
+                                    Top 5 AI Tools for Small Businesses in Africa
+                                </a>
+                                <div class="recent-post-date">December 8, 2024</div>
+                            </li>
+                            <li>
+                                <a href="#" class="recent-post-title" data-translate="recent_post3">
+                                    Machine Learning for Predictive Analytics
+                                </a>
+                                <div class="recent-post-date">December 3, 2024</div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Newsletter Widget -->
+                    <div class="sidebar-widget newsletter-signup">
+                        <h3 class="widget-title" data-translate="widget_newsletter">Newsletter</h3>
+                        <p data-translate="newsletter_description">Get the latest AI insights delivered to your inbox.</p>
+                        <form>
+                            <input type="email" class="newsletter-input" placeholder="Your email address" data-translate-placeholder="newsletter_placeholder">
+                            <button type="submit" class="newsletter-btn" data-translate="subscribe_btn">Subscribe</button>
+                        </form>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3 class="footer-title">Axle IA</h3>
+                    <p class="footer-description" data-translate="footer_description">
+                        Transforming businesses through cutting-edge AI solutions across Dubai and Côte d'Ivoire.
+                    </p>
+                    <div class="social-links">
+                        <a href="https://instagram.com/axle.ia" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zM5.838 12a6.162 6.162 0 1112.324 0 6.162 6.162 0 01-12.324 0zM12 16a4 4 0 110-8 4 4 0 010 8zm4.965-10.405a1.44 1.44 0 112.881.001 1.44 1.44 0 01-2.881-.001z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="footer-section">
+                    <h4 class="footer-section-title" data-translate="footer_company">Company</h4>
+                    <ul class="footer-links">
+                        <li><a href="../index.html#services" data-translate="footer_services">Services</a></li>
+                        <li><a href="../index.html#process" data-translate="footer_process">Process</a></li>
+                        <li><a href="../index.html#mission" data-translate="footer_mission">Mission</a></li>
+                        <li><a href="blog.html" data-translate="footer_blog">Blog</a></li>
+                        <li><a href="careers.html" data-translate="footer_careers">Careers</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4 class="footer-section-title" data-translate="footer_contact">Contact</h4>
+                    <div class="contact-info">
+                        <div class="region-specific dubai-content">
+                            <div class="contact-location">
+                                <strong>Dubai Office</strong>
+                                <p>Business Bay, Dubai, UAE</p>
+                                <p>hello@axle-ia.com</p>
+                            </div>
+                        </div>
+                        <div class="region-specific ci-content" style="display: none;">
+                            <div class="contact-location">
+                                <strong>Côte d'Ivoire Office</strong>
+                                <p>Plateau, Abidjan, CI</p>
+                                <p>hello@axle-ia.com</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="footer-section">
+                    <h4 class="footer-section-title" data-translate="footer_newsletter">Stay Updated</h4>
+                    <p class="newsletter-description" data-translate="newsletter_description">
+                        Get the latest insights on AI and business transformation.
+                    </p>
+                    <button class="cta-button primary newsletter-btn" id="newsletterBtn" data-translate="newsletter_button">
+                        Subscribe
+                    </button>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div class="footer-bottom-content">
+                    <p class="copyright" data-translate="footer_copyright">
+                        © 2024 Axle IA. All rights reserved.
+                    </p>
+                    <div class="footer-bottom-links">
+                        <a href="#" data-translate="privacy_policy">Privacy Policy</a>
+                        <a href="#" data-translate="terms_service">Terms of Service</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="../js/main.js"></script>
+    <script src="../js/translations.js"></script>
+    <script>
+        // Add blog-specific translations
+        const blogTranslations = {
+            en: {
+                blog_title: "AI Insights & Innovation",
+                blog_subtitle: "Discover the latest trends in AI, automation, and digital transformation",
+                category_ai_trends: "AI Trends",
+                category_automation: "Automation", 
+                category_chatbots: "Chatbots",
+                category_digital_transformation: "Digital Transformation",
+                category_case_studies: "Case Studies",
+                post1_title: "The Future of AI in Business: Trends to Watch in 2025",
+                post1_excerpt: "Explore the emerging AI technologies that will reshape business operations in 2025. From advanced automation to predictive analytics, discover how companies in Dubai and Côte d'Ivoire can stay ahead of the curve.",
+                post2_title: "Smart Process Automation: Case Study from Dubai",
+                post2_excerpt: "Learn how a leading Dubai-based company reduced operational costs by 40% using our smart process automation solutions. A detailed case study with real-world implementation insights.",
+                post3_title: "Building Multilingual Chatbots for African Markets",
+                post3_excerpt: "Discover how to create culturally-aware chatbots that speak French, English, and local languages. Essential insights for businesses expanding in Côte d'Ivoire and West Africa.",
+                post4_title: "AI-Driven Digital Marketing: ROI Strategies for SMEs",
+                post4_excerpt: "Small and medium enterprises can leverage AI for marketing success. Learn proven strategies that deliver measurable ROI without breaking the budget.",
+                read_more: "Read More →",
+                author_ai_team: "Axle IA Team",
+                author_sarah: "Sarah Martinez",
+                author_kofi: "Kofi Diallo", 
+                author_lucia: "Lucia Rodriguez",
+                widget_categories: "Categories",
+                widget_recent_posts: "Recent Posts",
+                widget_newsletter: "Newsletter",
+                recent_post1: "How AI is Transforming Customer Service in Dubai",
+                recent_post2: "Top 5 AI Tools for Small Businesses in Africa",
+                recent_post3: "Machine Learning for Predictive Analytics",
+                newsletter_placeholder: "Your email address",
+                subscribe_btn: "Subscribe",
+                pagination_prev: "← Previous",
+                pagination_next: "Next →"
+            },
+            fr: {
+                blog_title: "Insights IA & Innovation",
+                blog_subtitle: "Découvrez les dernières tendances en IA, automatisation et transformation digitale",
+                category_ai_trends: "Tendances IA",
+                category_automation: "Automatisation",
+                category_chatbots: "Chatbots", 
+                category_digital_transformation: "Transformation Digitale",
+                category_case_studies: "Études de Cas",
+                post1_title: "L'Avenir de l'IA en Entreprise : Tendances à Surveiller en 2025",
+                post1_excerpt: "Explorez les technologies IA émergentes qui vont remodeler les opérations business en 2025. De l'automatisation avancée à l'analytique prédictive, découvrez comment les entreprises à Dubaï et en Côte d'Ivoire peuvent garder une longueur d'avance.",
+                post2_title: "Automatisation Intelligente : Étude de Cas de Dubaï",
+                post2_excerpt: "Apprenez comment une entreprise leader de Dubaï a réduit ses coûts opérationnels de 40% grâce à nos solutions d'automatisation intelligente. Une étude de cas détaillée avec des insights d'implémentation concrets.",
+                post3_title: "Créer des Chatbots Multilingues pour les Marchés Africains",
+                post3_excerpt: "Découvrez comment créer des chatbots culturellement adaptés qui parlent français, anglais et langues locales. Insights essentiels pour les entreprises en expansion en Côte d'Ivoire et Afrique de l'Ouest.",
+                post4_title: "Marketing Digital Piloté par l'IA : Stratégies ROI pour PME",
+                post4_excerpt: "Les petites et moyennes entreprises peuvent exploiter l'IA pour le succès marketing. Apprenez des stratégies éprouvées qui délivrent un ROI mesurable sans exploser le budget.",
+                read_more: "Lire Plus →",
+                author_ai_team: "Équipe Axle IA",
+                author_sarah: "Sarah Martinez", 
+                author_kofi: "Kofi Diallo",
+                author_lucia: "Lucia Rodriguez",
+                widget_categories: "Catégories",
+                widget_recent_posts: "Articles Récents",
+                widget_newsletter: "Newsletter",
+                recent_post1: "Comment l'IA Transforme le Service Client à Dubaï",
+                recent_post2: "Top 5 des Outils IA pour PME en Afrique",
+                recent_post3: "Machine Learning pour l'Analytique Prédictive",
+                newsletter_placeholder: "Votre adresse email",
+                subscribe_btn: "S'abonner",
+                pagination_prev: "← Précédent",
+                pagination_next: "Suivant →"
+            }
+        };
+
+        // Extend existing translations
+        Object.keys(blogTranslations).forEach(lang => {
+            Object.assign(translations[lang], blogTranslations[lang]);
+        });
+    </script>
+</body>
+</html>

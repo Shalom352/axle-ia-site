@@ -1,25 +1,25 @@
 /* Axle IA - Main Styles */
 
 :root {
-    /* Colors */
-    --primary-color: #0066ff;
-    --secondary-color: #003d99;
-    --accent-color: #00d4ff;
-    --text-dark: #1a1a1a;
-    --text-medium: #4a4a4a;
-    --text-light: #666666;
-    --text-lighter: #999999;
-    --bg-white: #ffffff;
-    --bg-light: #f8f9fa;
-    --bg-darker: #f4f5f6;
-    --border-color: #e0e0e0;
-    --border-light: #f0f0f0;
+    /* Colors - Axle IA Official Dark Theme */
+    --primary-color: #e35c2b;           /* Orange vif officiel */
+    --secondary-color: #a14a2b;         /* Orange foncé/cuivré */
+    --accent-color: #d26e3d;            /* Orange intermédiaire */
+    --text-dark: #ffffff;               /* Texte principal blanc */
+    --text-medium: #e0e0e0;             /* Texte moyen gris très clair */
+    --text-light: #a0a0a0;              /* Texte secondaire gris clair */
+    --text-lighter: #808080;            /* Texte léger gris moyen */
+    --bg-white: #0a0a0a;                /* Fond principal noir profond */
+    --bg-light: #121212;                /* Fond léger gris très foncé */
+    --bg-darker: #1a1a1a;               /* Fond plus foncé */
+    --border-color: #333333;            /* Bordures grises foncées */
+    --border-light: #2a2a2a;            /* Bordures légères */
     
-    /* Shadows */
-    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
-    --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.15);
-    --shadow-xl: 0 16px 48px rgba(0, 0, 0, 0.2);
+    /* Shadows - Adapted for dark theme */
+    --shadow-sm: 0 2px 4px rgba(227, 92, 43, 0.1);
+    --shadow: 0 4px 12px rgba(227, 92, 43, 0.15);
+    --shadow-lg: 0 8px 24px rgba(227, 92, 43, 0.2);
+    --shadow-xl: 0 16px 48px rgba(227, 92, 43, 0.25);
     
     /* Transitions */
     --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -37,6 +37,11 @@
     --font-weight-semibold: 600;
     --font-weight-bold: 700;
     --font-weight-extrabold: 800;
+    
+    /* 3D Shapes Gradients */
+    --gradient-primary: linear-gradient(135deg, #e35c2b 0%, #d26e3d 50%, #a14a2b 100%);
+    --gradient-secondary: linear-gradient(45deg, #d26e3d 0%, #e35c2b 100%);
+    --gradient-accent: linear-gradient(225deg, #a14a2b 0%, #e35c2b 70%);
 }
 
 /* Reset and Base Styles */
@@ -83,6 +88,87 @@ a {
     transition: var(--transition);
 }
 
+/* 3D Abstract Shapes */
+.shape-3d {
+    position: absolute;
+    border-radius: 50% 30% 70% 40% / 60% 30% 70% 40%;
+    background: var(--gradient-primary);
+    filter: blur(1px);
+    animation: float 6s ease-in-out infinite;
+    opacity: 0.8;
+}
+
+.shape-3d::before {
+    content: '';
+    position: absolute;
+    top: -20%;
+    left: -20%;
+    right: -20%;
+    bottom: -20%;
+    background: var(--gradient-secondary);
+    border-radius: 60% 40% 60% 40% / 70% 30% 70% 30%;
+    filter: blur(2px);
+    opacity: 0.6;
+    z-index: -1;
+}
+
+.shape-3d.large {
+    width: 200px;
+    height: 200px;
+    animation-duration: 8s;
+}
+
+.shape-3d.medium {
+    width: 120px;
+    height: 120px;
+    animation-duration: 7s;
+    animation-delay: -2s;
+}
+
+.shape-3d.small {
+    width: 80px;
+    height: 80px;
+    animation-duration: 5s;
+    animation-delay: -4s;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-20px) rotate(180deg);
+    }
+}
+
+/* Organic 3D Elements */
+.organic-shape {
+    position: absolute;
+    background: var(--gradient-accent);
+    border-radius: 63% 37% 54% 46% / 55% 48% 52% 45%;
+    opacity: 0.7;
+    animation: morphing 10s ease-in-out infinite;
+}
+
+@keyframes morphing {
+    0%, 100% {
+        border-radius: 63% 37% 54% 46% / 55% 48% 52% 45%;
+        transform: scale(1) rotate(0deg);
+    }
+    25% {
+        border-radius: 40% 60% 70% 30% / 40% 40% 60% 60%;
+        transform: scale(1.1) rotate(90deg);
+    }
+    50% {
+        border-radius: 54% 46% 38% 62% / 49% 70% 30% 51%;
+        transform: scale(0.9) rotate(180deg);
+    }
+    75% {
+        border-radius: 61% 39% 55% 45% / 61% 38% 62% 39%;
+        transform: scale(1.05) rotate(270deg);
+    }
+}
+
 /* Header & Navigation */
 .header {
     position: fixed;
@@ -90,9 +176,9 @@ a {
     left: 0;
     right: 0;
     z-index: 1000;
-    background: rgba(255, 255, 255, 0.95);
+    background: rgba(10, 10, 10, 0.95);
     backdrop-filter: blur(10px);
-    border-bottom: 1px solid var(--border-light);
+    border-bottom: 1px solid var(--border-color);
     transition: var(--transition);
 }
 
@@ -167,7 +253,7 @@ a {
 .region-selector:focus {
     outline: none;
     border-color: var(--primary-color);
-    box-shadow: 0 0 0 3px rgba(0, 102, 255, 0.1);
+    box-shadow: 0 0 0 3px rgba(227, 92, 43, 0.1);
 }
 
 .lang-toggle {
@@ -207,10 +293,12 @@ a {
 /* Hero Section */
 .hero {
     padding: 140px 0 80px;
-    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+    background: linear-gradient(135deg, var(--bg-white) 0%, var(--bg-light) 100%);
     min-height: 100vh;
     display: flex;
     align-items: center;
+    position: relative;
+    overflow: hidden;
 }
 
 .hero .container {
@@ -229,7 +317,7 @@ a {
     font-weight: var(--font-weight-extrabold);
     line-height: 1.1;
     margin-bottom: 1.5rem;
-    background: linear-gradient(135deg, var(--text-dark) 0%, var(--primary-color) 100%);
+    background: var(--gradient-primary);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -309,7 +397,7 @@ a {
     width: 80px;
     height: 80px;
     border-radius: 50%;
-    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    background: var(--gradient-primary);
     animation: float 6s ease-in-out infinite;
     box-shadow: var(--shadow-lg);
 }
@@ -379,8 +467,8 @@ a {
 
 .service-card {
     padding: 2.5rem 2rem;
-    background: var(--bg-white);
-    border: 1px solid var(--border-light);
+    background: var(--bg-light);
+    border: 1px solid var(--border-color);
     border-radius: 16px;
     text-align: center;
     transition: var(--transition);
@@ -395,7 +483,7 @@ a {
     left: 0;
     right: 0;
     height: 4px;
-    background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+    background: var(--gradient-secondary);
     transform: scaleX(0);
     transition: var(--transition);
 }
@@ -414,7 +502,7 @@ a {
     height: 64px;
     margin: 0 auto 1.5rem;
     padding: 16px;
-    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    background: var(--gradient-primary);
     border-radius: 16px;
     color: var(--bg-white);
     display: flex;
@@ -437,7 +525,7 @@ a {
 /* Process Section */
 .process {
     padding: var(--section-padding);
-    background: var(--bg-light);
+    background: var(--bg-darker);
 }
 
 .process-timeline {
@@ -459,7 +547,7 @@ a {
 .step-number {
     width: 80px;
     height: 80px;
-    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    background: var(--gradient-primary);
     color: var(--bg-white);
     border-radius: 50%;
     display: flex;
@@ -554,7 +642,7 @@ a {
     width: 100%;
     height: 100%;
     border-radius: 50%;
-    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    background: var(--gradient-primary);
     position: relative;
     overflow: hidden;
     animation: rotate 20s linear infinite;
@@ -827,13 +915,15 @@ a {
     font-family: inherit;
     font-size: 1rem;
     transition: var(--transition);
+    background: var(--bg-light);
+    color: var(--text-dark);
 }
 
 .form-group input:focus,
 .form-group textarea:focus {
     outline: none;
     border-color: var(--primary-color);
-    box-shadow: 0 0 0 3px rgba(0, 102, 255, 0.1);
+    box-shadow: 0 0 0 3px rgba(227, 92, 43, 0.1);
 }
 
 .submit-button {
@@ -958,7 +1048,7 @@ a {
 .enhanced-form select:focus,
 .enhanced-form textarea:focus {
     border-color: var(--primary-color);
-    box-shadow: 0 0 0 3px rgba(0, 102, 255, 0.1);
+    box-shadow: 0 0 0 3px rgba(227, 92, 43, 0.1);
     outline: none;
 }
 

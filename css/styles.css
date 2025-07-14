@@ -7,13 +7,13 @@
     --accent-color: #d26e3d;            /* Orange intermédiaire */
     --text-dark: #ffffff;               /* Texte principal blanc */
     --text-medium: #e0e0e0;             /* Texte moyen gris très clair */
-    --text-light: #a0a0a0;              /* Texte secondaire gris clair */
-    --text-lighter: #808080;            /* Texte léger gris moyen */
+    --text-light: #c0c0c0;              /* Texte secondaire gris clair amélioré */
+    --text-lighter: #909090;            /* Texte léger gris moyen amélioré */
     --bg-white: #0a0a0a;                /* Fond principal noir profond */
     --bg-light: #121212;                /* Fond léger gris très foncé */
     --bg-darker: #1a1a1a;               /* Fond plus foncé */
-    --border-color: #333333;            /* Bordures grises foncées */
-    --border-light: #2a2a2a;            /* Bordures légères */
+    --border-color: #888888;            /* Bordures grises WCAG AA conformes */
+    --border-light: #777777;            /* Bordures légères WCAG AA conformes */
     
     /* Shadows - Adapted for dark theme */
     --shadow-sm: 0 2px 4px rgba(227, 92, 43, 0.1);
@@ -42,6 +42,11 @@
     --gradient-primary: linear-gradient(135deg, #e35c2b 0%, #d26e3d 50%, #a14a2b 100%);
     --gradient-secondary: linear-gradient(45deg, #d26e3d 0%, #e35c2b 100%);
     --gradient-accent: linear-gradient(225deg, #a14a2b 0%, #e35c2b 70%);
+    
+    /* Text shadows for better readability */
+    --text-shadow-light: 0 1px 3px rgba(0, 0, 0, 0.5);
+    --text-shadow-strong: 0 2px 6px rgba(0, 0, 0, 0.8);
+    --text-shadow-orange: 0 1px 3px rgba(227, 92, 43, 0.3);
 }
 
 /* Reset and Base Styles */
@@ -58,10 +63,15 @@ html {
 body {
     font-family: var(--font-family);
     font-weight: var(--font-weight-normal);
-    line-height: 1.6;
+    line-height: 1.7;
     color: var(--text-dark);
     background-color: var(--bg-white);
     overflow-x: hidden;
+    font-size: 16px;
+    /* Améliorer le rendu des polices */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
 }
 
 /* Container */
@@ -76,16 +86,64 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: var(--font-weight-bold);
     line-height: 1.2;
     margin-bottom: 1rem;
+    color: var(--text-dark);
 }
 
 p {
     margin-bottom: 1rem;
+    color: var(--text-light);
+    font-size: 1.05rem;
+    line-height: 1.7;
+}
+
+/* Amélioration de la lisibilité des sections */
+.section-title {
+    color: var(--text-dark);
+    font-size: 2.5rem;
+    text-shadow: var(--text-shadow-light);
+}
+
+.section-subtitle {
+    color: var(--text-light);
+    font-size: 1.2rem;
+    text-shadow: var(--text-shadow-light);
+}
+
+/* Protection texte contre formes 3D */
+.hero-content,
+.service-card h3,
+.service-card p,
+.process-step h3,
+.process-step p {
+    position: relative;
+    z-index: 10;
+    text-shadow: var(--text-shadow-strong);
+}
+
+/* Amélioration des liens */
+a {
+    transition: var(--transition);
+}
+
+a:hover {
+    color: var(--primary-color);
+    text-shadow: var(--text-shadow-orange);
+}
+
+/* Focus states améliorés pour accessibilité */
+button:focus,
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
+    box-shadow: 0 0 0 4px rgba(227, 92, 43, 0.2);
 }
 
 a {
     text-decoration: none;
     color: inherit;
-    transition: var(--transition);
 }
 
 /* 3D Abstract Shapes */
@@ -321,6 +379,20 @@ a {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+    /* Fallback pour meilleure lisibilité si le gradient ne fonctionne pas */
+    position: relative;
+}
+
+.hero-title::before {
+    content: attr(data-translate);
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    color: var(--text-dark);
+    text-shadow: var(--text-shadow-strong);
+    -webkit-text-fill-color: var(--text-dark);
+    background: none;
 }
 
 .hero-subtitle {
@@ -328,6 +400,7 @@ a {
     color: var(--text-light);
     margin-bottom: 2.5rem;
     line-height: 1.6;
+    text-shadow: var(--text-shadow-light);
 }
 
 .hero-actions {
@@ -666,9 +739,10 @@ a {
 
 /* Footer */
 .footer {
-    background: var(--text-dark);
-    color: var(--bg-white);
+    background: var(--bg-darker);
+    color: var(--text-dark);
     padding: 80px 0 40px;
+    border-top: 1px solid var(--border-color);
 }
 
 .footer-content {
@@ -723,17 +797,22 @@ a {
 .social-links a {
     width: 40px;
     height: 40px;
-    background: rgba(255, 255, 255, 0.1);
+    background: var(--border-color);
+    border: 1px solid var(--border-light);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     transition: var(--transition);
+    color: var(--text-light);
 }
 
 .social-links a:hover {
     background: var(--primary-color);
+    border-color: var(--primary-color);
     transform: translateY(-2px);
+    color: var(--text-dark);
+    box-shadow: 0 4px 12px rgba(227, 92, 43, 0.3);
 }
 
 .footer-stats {
@@ -767,15 +846,18 @@ a {
 }
 
 .contact-location strong {
+    color: var(--primary-color);
+    font-size: 1.1rem;
     display: block;
-    margin-bottom: 0.5rem;
-    color: var(--bg-white);
+    margin-bottom: 0.8rem;
 }
 
 .contact-location p {
-    color: rgba(255, 255, 255, 0.8);
-    margin-bottom: 0.25rem;
+    margin-bottom: 0.5rem;
+    line-height: 1.5;
+    color: var(--text-light);
 }
+
 
 .newsletter-description {
     color: rgba(255, 255, 255, 0.8);
